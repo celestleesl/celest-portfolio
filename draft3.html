@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.FontAwesomeConfig = {
+          autoReplaceSvg: 'nest'
+        };
+      </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celest — Marketing &amp; Content</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Gochi+Hand&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              cream: '#faf7f2',
+              grey: '#f2ede3',
+              card: '#eae7df',
+              ink: '#1c2333',
+              muted: '#4a5266',
+              faint: '#8a90a0',
+              line: '#e6e0d3',
+              accent: '#6b6558',
+              fun: '#a3735c',
+              sunny: '#d9cfb8',
+              sky: '#b3bcb8',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              editorial: ['DM Serif Display', 'serif'],
+              hand: ['Gochi Hand', 'cursive'],
+            },
+            boxShadow: {
+              soft: 'rgba(17, 17, 17, 0.08) 0px 16px 40px -12px',
+              pop: '8px 8px 0px #1c2333',
+            },
+            borderRadius: {
+              'jumbo': '60px',
+            }
+          },
+        },
+      };
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #faf7f2; color: #1c2333; overflow-x: hidden; }
+        h1, h2, .editorial { font-family: 'DM Serif Display', serif; }
+        .handwritten { font-family: 'Gochi Hand', cursive; }
+
+        .scribble-underline {
+            position: relative;
+            display: inline-block;
+        }
+        .scribble-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='8' viewBox='0 0 100 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 5.5C20 2 40 8 60 4.5C80 1 95 6 99 3' stroke='%23a3735c' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-size: 100% 100%;
+            z-index: -1;
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translate(0, 0px) rotate(0deg); }
+            50% { transform: translate(0, -10px) rotate(2deg); }
+            100% { transform: translate(0, 0px) rotate(0deg); }
+        }
+
+        .hover-lift { transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s ease; }
+        .hover-lift:hover {
+            transform: translateY(-8px) rotate(-1deg);
+        }
+
+        .pop-card {
+            border: 2px solid #1c2333;
+            box-shadow: 8px 8px 0px #1c2333;
+            transition: all 0.2s ease;
+        }
+        .pop-card:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 4px 4px 0px #1c2333;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #faf7f2; }
+        ::-webkit-scrollbar-thumb { background: #1c2333; border-radius: 10px; border: 2px solid #faf7f2; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <header id="header" class="fixed top-0 left-0 w-full z-50 bg-cream/80 backdrop-blur-md border-b-2 border-ink px-6 py-4">
+        <nav class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-fun border-2 border-ink rounded-xl flex items-center justify-center text-white font-bold rotate-[-3deg] shadow-[3px_3px_0px_#1c2333]">C</div>
+                <span class="text-2xl font-bold tracking-tight uppercase editorial">Celest.</span>
+            </div>
+            <div class="hidden md:flex gap-10 text-xs font-bold uppercase tracking-widest">
+                <a href="#work" class="hover:text-fun transition-colors">Work</a>
+                <a href="#content" class="hover:text-fun transition-colors">Content</a>
+                <a href="#about" class="hover:text-fun transition-colors">About</a>
+                <a href="#contact" class="hover:text-fun transition-colors">Contact</a>
+            </div>
+            <a href="#contact" class="bg-ink text-white px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-fun hover:shadow-[4px_4px_0px_#1c2333] transition-all">Let's talk</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative pt-44 pb-24 px-6 overflow-hidden">
+        <!-- Abstract Fun Blobs -->
+        <div class="absolute top-20 right-[-5%] w-64 h-64 bg-sunny rounded-full mix-blend-multiply filter blur-3xl opacity-40 floating"></div>
+        <div class="absolute bottom-20 left-[-5%] w-80 h-80 bg-fun rounded-full mix-blend-multiply filter blur-3xl opacity-20 floating" style="animation-delay: 1.5s;"></div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div class="lg:col-span-7 relative z-10">
+                <div class="handwritten text-fun text-3xl mb-4 rotate-[-2deg]">Hi, I'm Celest! 👋</div>
+                <h1 class="text-6xl md:text-8xl leading-[0.95] mb-8 font-bold">
+                    Marketing <br/>
+                    <span class="scribble-underline">with a side</span> <br/>
+                    of storytelling.
+                </h1>
+                <p class="text-muted text-xl md:text-2xl max-w-xl leading-relaxed mb-10">
+                    I help brands find their voice through data-driven strategy and authentic content. No boring corporate talk — just growth that feels real.
+                </p>
+                <div class="flex flex-wrap gap-5">
+                    <a href="#work" class="bg-ink text-white px-10 py-5 rounded-2xl text-sm font-bold uppercase tracking-widest hover:bg-accent hover:shadow-pop transition-all flex items-center gap-3">
+                        See my work <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#content" class="bg-sunny border-2 border-ink text-ink px-10 py-5 rounded-2xl text-sm font-bold uppercase tracking-widest hover:bg-white transition-all shadow-[6px_6px_0px_#1c2333]">
+                        Content Samples
+                    </a>
+                </div>
+            </div>
+            <div class="lg:col-span-5 relative">
+                <div class="relative w-full aspect-square max-w-lg mx-auto">
+                    <!-- Layered Frame Effect -->
+                    <div class="absolute inset-0 border-2 border-ink rounded-[60px] rotate-6 bg-white/50 translate-x-4 translate-y-4"></div>
+                    <div class="absolute inset-0 bg-fun rounded-[60px] -rotate-3 translate-x-2 translate-y-2"></div>
+                    <div class="relative w-full h-full rounded-[60px] overflow-hidden border-2 border-ink shadow-2xl">
+                        <img class="w-full h-full object-cover" src="assets/celest-new-web.jpg" alt="Celest Lee" />
+                    </div>
+                    <!-- Fun Floating Sticker -->
+                    <div class="absolute -bottom-8 -left-8 w-36 h-36 bg-sunny border-2 border-ink rounded-full flex items-center justify-center text-ink p-4 text-center rotate-[-12deg] shadow-pop floating">
+                        <span class="handwritten text-lg leading-tight font-bold">Strategy + <br> Creative!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Band -->
+    <section class="py-16 px-6 border-y-2 border-ink bg-white">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-center text-[10px] uppercase font-black tracking-[0.3em] text-faint mb-10">Brands I've worked with</p>
+            <div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-70">
+                <span class="text-2xl font-bold tracking-tight">Physio &amp; Sole</span>
+                <span class="text-2xl font-bold tracking-tight uppercase">AnjouHealth</span>
+                <span class="text-2xl font-black tracking-widest">WACC</span>
+                <span class="text-2xl font-black italic">Wunderfolks</span>
+                <span class="text-2xl font-bold font-serif italic">Two Hungry Humans</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selected Work -->
+    <section id="work" class="py-32 px-6 bg-grey/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+                <div>
+                    <div class="handwritten text-fun text-2xl mb-2">Projects I'm proud of</div>
+                    <h2 class="text-5xl md:text-7xl font-bold">The Portfolio</h2>
+                </div>
+                <p class="text-muted max-w-sm text-lg">
+                    A mix of strategic marketing, SEO, and brand storytelling.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Case Study 1 -->
+                <div class="md:col-span-2 group">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-white border-2 border-ink rounded-[40px] p-8 md:p-12 shadow-pop hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_#1c2333] transition-all duration-300">
+                        <div class="order-2 lg:order-1">
+                            <div class="inline-block px-4 py-1 bg-fun border-2 border-ink rounded-full text-[10px] font-black uppercase tracking-widest text-white mb-6">Case Study — @two.hungryhumans</div>
+                            <h3 class="text-4xl md:text-5xl mb-8 font-bold leading-tight">Building a community of <span class="text-fun italic">hungry</span> followers.</h3>
+                            <p class="text-muted text-lg leading-relaxed mb-10">
+                                Co-founded and run this Singapore food review page alongside my partner — content strategy, filming, editing, captions, and social growth, entirely self-produced with no paid sponsorships.
+                            </p>
+                            <div class="grid grid-cols-3 gap-4 mb-12">
+                                <div class="bg-sunny/40 border-2 border-ink p-5 rounded-2xl">
+                                    <div class="text-[10px] uppercase font-black text-ink/40 mb-1">First 30 days</div>
+                                    <p class="text-sm font-bold tracking-tight">2 → 176 followers</p>
+                                </div>
+                                <div class="bg-fun/10 border-2 border-ink p-5 rounded-2xl">
+                                    <div class="text-[10px] uppercase font-black text-ink/40 mb-1">Reach</div>
+                                    <p class="text-sm font-bold tracking-tight">14,977 accounts</p>
+                                </div>
+                                <div class="bg-sky/20 border-2 border-ink p-5 rounded-2xl">
+                                    <div class="text-[10px] uppercase font-black text-ink/40 mb-1">Views</div>
+                                    <p class="text-sm font-bold tracking-tight">28.3K reels &amp; posts</p>
+                                </div>
+                            </div>
+                            <a href="https://instagram.com/two.hungryhumans" target="_blank" rel="noopener" class="inline-flex items-center gap-3 text-sm font-black uppercase tracking-widest bg-ink text-white px-8 py-4 rounded-xl hover:bg-fun transition-all">Read the Story <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                        <div class="order-1 lg:order-2 aspect-[4/3] rounded-3xl overflow-hidden border-2 border-ink relative bg-gradient-to-br from-fun to-ink flex items-center justify-center">
+                            <span class="text-white/90 font-editorial text-3xl italic text-center px-8">Two Hungry Humans</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 2 -->
+                <div class="bg-white pop-card rounded-[40px] p-8 group">
+                    <div class="aspect-video rounded-3xl overflow-hidden border-2 border-ink mb-8 relative bg-gradient-to-br from-sky to-muted flex items-center justify-center">
+                        <span class="text-white/90 font-editorial text-2xl italic text-center px-6">Physio &amp; Sole</span>
+                    </div>
+                    <div class="text-[10px] uppercase font-black text-fun mb-3">Physio &amp; Sole Clinic</div>
+                    <h3 class="text-3xl font-bold mb-5">Making medical marketing feel <span class="italic">human.</span></h3>
+                    <p class="text-muted leading-relaxed mb-8">Ongoing content and SEO strategy for a Singapore physiotherapy and podiatry clinic — keyword research, on-page optimization, and a content calendar built around patient search intent.</p>
+                    <span class="text-xs font-black uppercase tracking-widest border-b-4 border-sunny pb-1 text-faint">Full write-up in progress</span>
+                </div>
+
+                <!-- Case Study 3 -->
+                <div class="bg-white pop-card rounded-[40px] p-8 group">
+                    <div class="aspect-video rounded-3xl overflow-hidden border-2 border-ink mb-8 relative bg-gradient-to-br from-accent to-ink flex items-center justify-center">
+                        <span class="text-white/90 font-editorial text-2xl italic text-center px-6">AnjouHealth</span>
+                    </div>
+                    <div class="text-[10px] uppercase font-black text-fun mb-3">AnjouHealth</div>
+                    <h3 class="text-3xl font-bold mb-5">A confident, minimal <span class="italic">wellness</span> vibe.</h3>
+                    <p class="text-muted leading-relaxed mb-8">Content and search strategy supporting AnjouHealth's organic visibility as a sister brand to Physio &amp; Sole, including on-page SEO and a content system built for consistency.</p>
+                    <span class="text-xs font-black uppercase tracking-widest border-b-4 border-sunny pb-1 text-faint">Full write-up in progress</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Showcase -->
+    <section id="content" class="py-32 px-6 bg-ink text-white rounded-t-[80px] mt-[-40px] relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col items-center text-center mb-24">
+                <div class="handwritten text-sunny text-4xl mb-6 rotate-[-5deg]">Creator Mode: ON</div>
+                <h2 class="text-6xl md:text-8xl font-bold mb-8">Content, IRL</h2>
+                <p class="text-white/60 max-w-2xl text-xl leading-relaxed">
+                    @two.hungryhumans is where the food content lives — reels, posts, and everything self-produced. This grid is still filling in.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="aspect-[9/16] bg-white/5 rounded-[40px] border-2 border-white/20 overflow-hidden flex items-center justify-center text-center p-6">
+                    <span class="handwritten text-2xl text-sunny/80">reel<br>coming<br>soon</span>
+                </div>
+                <div class="aspect-[9/16] bg-white/5 rounded-[40px] border-2 border-white/20 overflow-hidden flex items-center justify-center text-center p-6 mt-12">
+                    <span class="handwritten text-2xl text-fun/80">reel<br>coming<br>soon</span>
+                </div>
+                <div class="aspect-[9/16] bg-white/5 rounded-[40px] border-2 border-white/20 overflow-hidden flex items-center justify-center text-center p-6">
+                    <span class="handwritten text-2xl text-sky/80">reel<br>coming<br>soon</span>
+                </div>
+                <div class="aspect-[9/16] bg-white/5 rounded-[40px] border-2 border-white/20 overflow-hidden flex items-center justify-center text-center p-6 mt-12">
+                    <span class="handwritten text-2xl text-sunny/80">reel<br>coming<br>soon</span>
+                </div>
+            </div>
+
+            <div class="mt-24 text-center">
+                <a href="https://instagram.com/two.hungryhumans" target="_blank" rel="noopener" class="inline-flex items-center gap-5 bg-sunny text-ink px-14 py-7 rounded-2xl text-lg font-black uppercase tracking-widest hover:bg-white hover:shadow-[8px_8px_0px_#a3735c] transition-all">
+                    Follow @two.hungryhumans <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience / About -->
+    <section id="about" class="py-32 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-20">
+                <div class="handwritten text-fun text-3xl mb-4">My Story</div>
+                <h2 class="text-5xl md:text-6xl font-bold">The Journey</h2>
+            </div>
+
+            <div class="space-y-2 relative">
+                <!-- Timeline Line -->
+                <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-1 bg-ink/10 hidden md:block"></div>
+
+                <!-- Event 1 -->
+                <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 pb-16">
+                    <div class="md:text-right pt-2">
+                        <div class="text-xs font-black uppercase tracking-[0.2em] text-fun mb-2">2024 — Now</div>
+                        <h3 class="text-3xl font-bold mb-4">Multi-Brand Marketing</h3>
+                    </div>
+                    <div class="bg-white border-2 border-ink p-8 rounded-3xl shadow-pop">
+                        <h4 class="text-xl font-bold mb-4">Marketing Executive, Physio &amp; Sole / AnjouHealth</h4>
+                        <p class="text-muted leading-relaxed">Planning and executing content, SEO, and campaigns across two sister healthcare brands — email, social, paid ads, and the reporting that shows what's working.</p>
+                    </div>
+                    <div class="absolute left-[-8px] md:left-1/2 md:translate-x-[-50%] top-2 w-4 h-4 bg-ink rounded-full border-4 border-cream"></div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 pb-16">
+                    <div class="order-1 md:order-2 pt-2">
+                        <div class="text-xs font-black uppercase tracking-[0.2em] text-sunny mb-2">2022 — 2023</div>
+                        <h3 class="text-3xl font-bold mb-4">Wunderfolks</h3>
+                    </div>
+                    <div class="order-2 md:order-1 bg-white border-2 border-ink p-8 rounded-3xl shadow-pop">
+                        <h4 class="text-xl font-bold mb-4">Marketing &amp; Graphic Designer</h4>
+                        <p class="text-muted leading-relaxed">Built the content calendar, designed marketing collateral, and wrote copy for campaigns across web, e-commerce, and social — learning how growth compounds when the system is right.</p>
+                    </div>
+                    <div class="absolute left-[-8px] md:left-1/2 md:translate-x-[-50%] top-2 w-4 h-4 bg-ink rounded-full border-4 border-cream"></div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24">
+                    <div class="md:text-right pt-2">
+                        <div class="text-xs font-black uppercase tracking-[0.2em] text-sky mb-2">2021</div>
+                        <h3 class="text-3xl font-bold mb-4">Where It Started</h3>
+                    </div>
+                    <div class="bg-white border-2 border-ink p-8 rounded-3xl shadow-pop">
+                        <h4 class="text-xl font-bold mb-4">Design &amp; Marketing Intern, Paper Carpenter</h4>
+                        <p class="text-muted leading-relaxed">Mock-ups, presentation slides, and my first real taste of client work — plus workshops, photography, and video for promotional use.</p>
+                    </div>
+                    <div class="absolute left-[-8px] md:left-1/2 md:translate-x-[-50%] top-2 w-4 h-4 bg-ink rounded-full border-4 border-cream"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-32 px-6 bg-sunny/20 border-y-2 border-ink">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <div class="handwritten text-fun text-3xl mb-4">Real Love</div>
+                <h2 class="text-5xl font-bold">Kind Words</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="bg-white border-2 border-ink p-12 rounded-[40px] shadow-pop relative">
+                    <div class="absolute -top-6 -left-6 w-16 h-16 bg-fun border-2 border-ink rounded-full flex items-center justify-center text-white text-3xl rotate-[-12deg] shadow-pop">
+                        <i class="fa-solid fa-quote-left"></i>
+                    </div>
+                    <p class="text-xl font-medium italic leading-relaxed mb-10 text-ink">
+                        "Her expertise in social media graphic design and copywriting has significantly contributed to our marketing success... a versatile asset to any marketing team."
+                    </p>
+                    <div class="flex items-center gap-5">
+                        <div class="w-16 h-16 rounded-2xl border-2 border-ink bg-fun/20 flex items-center justify-center font-bold text-lg text-fun">ZZ</div>
+                        <div>
+                            <div class="text-lg font-bold">Zuffean Zamri</div>
+                            <div class="text-xs font-black uppercase tracking-widest text-faint">Managed Celest Directly</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white border-2 border-ink p-12 rounded-[40px] shadow-pop relative mt-8 md:mt-0">
+                    <div class="absolute -top-6 -right-6 w-16 h-16 bg-sky border-2 border-ink rounded-full flex items-center justify-center text-white text-3xl rotate-[12deg] shadow-pop">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <p class="text-xl font-medium italic leading-relaxed mb-10 text-ink">
+                        "I highly recommend Celest... she has an eye for details and does it quickly too! The design sense is awesome, could meet my expectations!"
+                    </p>
+                    <div class="flex items-center gap-5">
+                        <div class="w-16 h-16 rounded-2xl border-2 border-ink bg-sky/30 flex items-center justify-center font-bold text-lg text-ink">PW</div>
+                        <div>
+                            <div class="text-lg font-bold">Polly Wang</div>
+                            <div class="text-xs font-black uppercase tracking-widest text-faint">Was Celest's Client</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto bg-fun border-2 border-ink rounded-jumbo p-10 md:p-24 relative overflow-hidden shadow-pop">
+            <!-- Decorative Stickers -->
+            <div class="absolute -top-10 -right-10 w-64 h-64 bg-sunny/30 rounded-full border-2 border-ink mix-blend-screen"></div>
+
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-6 text-white">
+                    <div class="handwritten text-sunny text-4xl mb-6">Let's be friends!</div>
+                    <h2 class="text-6xl md:text-8xl font-bold mb-10 leading-[0.9]">Got a wild <br> idea?</h2>
+                    <p class="text-white/90 text-2xl mb-12 leading-relaxed">
+                        Whether you want to chat about a marketing overhaul, a content collab, or just want to say hi — I'm all ears!
+                    </p>
+                    <div class="space-y-6 text-xl font-bold">
+                        <a href="mailto:celestleesl@gmail.com" class="flex items-center gap-5 hover:text-sunny transition-all group">
+                            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center group-hover:bg-sunny group-hover:text-ink transition-all"><i class="fa-solid fa-envelope"></i></div>
+                            celestleesl@gmail.com
+                        </a>
+                        <div class="flex gap-8 pt-8">
+                            <a href="https://instagram.com/two.hungryhumans" target="_blank" rel="noopener" class="text-4xl hover:scale-125 transition-transform hover:text-sunny"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/celestleesl" target="_blank" rel="noopener" class="text-4xl hover:scale-125 transition-transform hover:text-sunny"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-6">
+                    <div class="bg-white border-2 border-ink rounded-[40px] p-8 md:p-12 shadow-pop">
+                        <form class="space-y-6" onsubmit="event.preventDefault()">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-[10px] font-black uppercase tracking-[0.2em] mb-2">Name</label>
+                                    <input type="text" class="w-full border-2 border-ink rounded-xl px-4 py-4 outline-none focus:bg-sunny/10 transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-black uppercase tracking-[0.2em] mb-2">Email</label>
+                                    <input type="email" class="w-full border-2 border-ink rounded-xl px-4 py-4 outline-none focus:bg-sunny/10 transition-all">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-black uppercase tracking-[0.2em] mb-2">The Mission</label>
+                                <textarea rows="5" class="w-full border-2 border-ink rounded-xl px-4 py-4 outline-none focus:bg-sunny/10 transition-all resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-ink text-white py-6 rounded-xl text-sm font-black uppercase tracking-widest hover:bg-fun hover:shadow-pop transition-all">
+                                Send the signal!
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 px-6 text-center">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-12">
+                <div class="text-3xl font-bold uppercase editorial mb-2">Celest<span class="text-fun">.</span></div>
+                <p class="text-faint font-bold tracking-[0.2em] uppercase text-[10px]">Marketing with heart &amp; grit</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-10 text-[10px] font-black uppercase tracking-widest mb-16">
+                <a href="#work" class="hover:text-fun transition-colors">Work</a>
+                <a href="#content" class="hover:text-fun transition-colors">Content</a>
+                <a href="#about" class="hover:text-fun transition-colors">About</a>
+                <a href="#contact" class="hover:text-fun transition-colors">Contact</a>
+            </div>
+            <div class="text-[10px] text-faint font-black uppercase tracking-widest">
+                &copy; 2026 Celest Lee — All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

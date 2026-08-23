@@ -1,233 +1,942 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Celest Lee — Marketing &amp; SEO</title>
-<meta name="description" content="Celest Lee — digital marketing &amp; SEO strategist based in Singapore.">
+<title>Celest Lee — Marketing &amp; Content</title>
+<meta name="description" content="Celest Lee — marketing strategist and content creator based in Singapore.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=Gochi+Hand&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf7f2;
+    --paper: #ffffff;
+    --card: #eae7df;
+    --ink: #1c2333;
+    --muted: #4a5266;
+    --faint: #8a90a0;
+    --line: #e6e0d3;
+    --clay: #a3735c;
+    --clay-deep: #7c5744;
+    --sand: #d9cfb8;
+    --sage: #a9b3a5;
+    --shadow-color: #1c2333;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --cream: #15181d; --paper: #1d2127; --card: #262b32; --ink: #f2efe9;
+      --muted: #b7bcc4; --faint: #7b828e; --line: #333a44;
+      --clay: #c99274; --clay-deep: #e0b096; --sand: #3c3626; --sage: #4b564c;
+      --shadow-color: #000000;
+    }
+  }
+  :root[data-theme="dark"] {
+    --cream: #15181d; --paper: #1d2127; --card: #262b32; --ink: #f2efe9;
+    --muted: #b7bcc4; --faint: #7b828e; --line: #333a44;
+    --clay: #c99274; --clay-deep: #e0b096; --sand: #3c3626; --sage: #4b564c;
+    --shadow-color: #000000;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--cream); color: var(--ink);
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  h1, h2, h3, .editorial { font-family: "DM Serif Display", ui-serif, Georgia, serif; font-weight: 400; margin: 0; text-wrap: balance; }
+  .hand { font-family: "Gochi Hand", cursive; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  section { padding: 0 24px; }
+  .wrap { max-width: 1120px; margin: 0 auto; }
+  .page { display: none; }
+  .page.active { display: block; }
+
+  .scribble { position: relative; display: inline-block; }
+  .scribble::after {
+    content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 7px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='8' viewBox='0 0 100 8'%3E%3Cpath d='M1 5.5C20 2 40 8 60 4.5C80 1 95 6 99 3' stroke='%23a3735c' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-size: 100% 100%; z-index: -1;
+  }
+
+  @keyframes floaty {
+    0%, 100% { transform: translate(0,0) rotate(var(--r,0deg)); }
+    50% { transform: translate(0,-9px) rotate(calc(var(--r,0deg) + 2deg)); }
+  }
+  .floaty { animation: floaty 4s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) { .floaty, .marquee-track { animation: none !important; } }
+
+  .pop {
+    border: 2px solid var(--ink); box-shadow: 7px 7px 0 var(--shadow-color); background: var(--paper);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .pop:hover { transform: translate(2px,2px); box-shadow: 4px 4px 0 var(--shadow-color); }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: 14px;
+    font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+    border: 2px solid var(--ink); cursor: pointer; transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    font-family: inherit;
+  }
+  .btn-ink { background: var(--ink); color: var(--cream); box-shadow: 5px 5px 0 var(--clay); }
+  .btn-ink:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--clay); }
+  .btn-sand { background: var(--sand); color: var(--ink); box-shadow: 5px 5px 0 var(--shadow-color); }
+  .btn-sand:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--shadow-color); }
+
+  .icon { width: 1em; height: 1em; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vertical-align: -0.15em; }
+
+  /* ---------- nav ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--cream) 85%, transparent);
+    backdrop-filter: blur(10px); border-bottom: 2px solid var(--ink);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+  .nav-brand { display: flex; align-items: center; gap: 10px; }
+  .nav-logo { height: 30px; width: auto; display: block; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .nav-logo { filter: invert(1); }
+  }
+  :root[data-theme="dark"] .nav-logo { filter: invert(1); }
+  .nav-links { display: flex; gap: 32px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
+  .nav-links a { padding-bottom: 2px; border-bottom: 2px solid transparent; }
+  .nav-links a:hover { color: var(--clay); }
+  .nav-links a.current { border-bottom-color: var(--clay); color: var(--clay); }
+  .nav-right { display: flex; align-items: center; gap: 14px; }
+  .theme-btn {
+    width: 34px; height: 34px; border-radius: 9px; border: 2px solid var(--ink); background: var(--paper);
+    color: var(--ink); cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
+  @media (max-width: 760px) { .nav-links { display: none; } }
+
+  /* ---------- hero ---------- */
+  .hero { padding-top: 76px; padding-bottom: 96px; position: relative; overflow: hidden; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(50px); opacity: .5; pointer-events: none; }
+  .blob-1 { top: 40px; right: -80px; width: 260px; height: 260px; background: var(--sand); }
+  .blob-2 { bottom: 20px; left: -100px; width: 320px; height: 320px; background: var(--clay); opacity: .18; }
+  .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; position: relative; }
+  .hero-hand { color: var(--clay); font-size: 30px; transform: rotate(-3deg); display: inline-block; margin-bottom: 10px; }
+  .hero h1 { font-size: clamp(42px, 6vw, 68px); line-height: 1.02; margin-bottom: 26px; }
+  .hero-sub { font-size: 19px; color: var(--muted); max-width: 46ch; margin-bottom: 34px; }
+  .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-photo-frame { position: relative; width: 100%; max-width: 400px; aspect-ratio: 1; margin: 0 auto; }
+  .frame-back-1 { position: absolute; inset: 0; border: 2px solid var(--ink); border-radius: 46px; transform: rotate(6deg) translate(14px,14px); background: color-mix(in srgb, var(--paper) 60%, transparent); }
+  .frame-back-2 { position: absolute; inset: 0; background: var(--clay); border-radius: 46px; transform: rotate(-3deg) translate(7px,7px); }
+  .frame-photo { position: relative; width: 100%; height: 100%; border-radius: 46px; overflow: hidden; border: 2px solid var(--ink); }
+  .frame-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-sticker {
+    position: absolute; bottom: -26px; left: -26px; width: 130px; height: 130px; border-radius: 50%;
+    background: var(--sand); border: 2px solid var(--ink); display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 14px; transform: rotate(-11deg); box-shadow: 6px 6px 0 var(--shadow-color); --r: -11deg;
+  }
+  .hero-sticker span { font-size: 15px; line-height: 1.25; font-weight: 700; }
+  @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; } .hero-photo-frame { max-width: 300px; } }
+
+  /* ---------- brand band ---------- */
+  .brands { padding: 44px 24px; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); background: var(--paper); }
+  .brands-label { text-align: center; font-size: 10px; font-weight: 800; letter-spacing: .28em; text-transform: uppercase; color: var(--faint); margin-bottom: 26px; }
+  .brands-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 46px; font-size: 20px; font-weight: 700; color: var(--muted); }
+
+  /* ---------- section headers ---------- */
+  .sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; flex-wrap: wrap; margin-bottom: 56px; }
+  .sec-head.center { justify-content: center; text-align: center; flex-direction: column; align-items: center; }
+  .sec-eyebrow { color: var(--clay); font-size: 22px; margin-bottom: 6px; }
+  .sec-title { font-size: clamp(32px, 4.4vw, 48px); }
+  .sec-note { color: var(--muted); font-size: 16px; max-width: 34ch; }
+
+  /* ---------- work ---------- */
+  .work { padding-top: 110px; padding-bottom: 110px; }
+  .case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+  .case-grid.four { grid-template-columns: repeat(2, 1fr); }
+  .case-feature { grid-column: 1 / -1; border-radius: 34px; padding: 40px; }
+  .case-feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; }
+  .case-tag { display: inline-block; padding: 5px 14px; background: var(--clay); color: #fff; border: 2px solid var(--ink); border-radius: 999px; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 20px; }
+  .case-feature h3 { font-size: clamp(28px, 3.4vw, 38px); margin-bottom: 20px; line-height: 1.15; }
+  .case-feature p { color: var(--muted); font-size: 16px; line-height: 1.65; margin-bottom: 26px; }
+  .stat-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 28px; }
+  .stat { border: 2px solid var(--ink); border-radius: 14px; padding: 14px; background: var(--card); }
+  .stat-label { font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--faint); margin-bottom: 4px; }
+  .stat-value { font-size: 14px; font-weight: 700; }
+  .case-media {
+    aspect-ratio: 4/3; border-radius: 22px; border: 2px solid var(--ink); overflow: hidden;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+  }
+  .case-media img { width: 100%; height: 100%; object-fit: cover; }
+  .case-media.tinted { padding: 20px; background: linear-gradient(135deg, var(--clay), var(--ink)); }
+  .case-media.tinted span { color: rgba(255,255,255,.92); font-family: "DM Serif Display", serif; font-style: italic; font-size: 26px; }
+  .case-card { border-radius: 30px; padding: 30px; }
+  .case-media-sm { aspect-ratio: 16/10; border-radius: 18px; border: 2px solid var(--ink); overflow: hidden; margin-bottom: 26px; display: flex; align-items: center; justify-content: center; text-align: center; }
+  .case-media-sm img { width: 100%; height: 100%; object-fit: cover; }
+  .case-media-sm.tinted { padding: 16px; }
+  .case-media-sm.tinted span { color: rgba(255,255,255,.92); font-family: "DM Serif Display", serif; font-style: italic; font-size: 21px; }
+  .m-sage { background: linear-gradient(135deg, var(--sage), var(--muted)); }
+  .m-sand { background: linear-gradient(135deg, var(--clay-deep), var(--ink)); }
+  .case-card .case-tag { background: none; color: var(--clay); border: none; padding: 0; margin-bottom: 12px; }
+  .case-card h3 { font-size: 26px; margin-bottom: 14px; }
+  .case-card p { color: var(--muted); font-size: 15px; line-height: 1.6; margin-bottom: 18px; }
+  .case-status { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--faint); border-bottom: 3px solid var(--sand); padding-bottom: 3px; }
+  .case-card-link { display: block; }
+  @media (max-width: 860px) { .case-grid, .case-grid.four, .case-feature-grid { grid-template-columns: 1fr; } .case-media { order: -1; } }
+
+  /* ---------- case detail page ---------- */
+  .case-detail { padding-top: 60px; padding-bottom: 110px; }
+  .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 40px; }
+  .back-link:hover { color: var(--clay); }
+  .case-detail-hero { aspect-ratio: 21/9; border-radius: 30px; border: 2px solid var(--ink); overflow: hidden; margin-bottom: 40px; box-shadow: 7px 7px 0 var(--shadow-color); }
+  .case-detail-hero img { width: 100%; height: 100%; object-fit: cover; }
+  .case-detail-hero.tinted { display: flex; align-items: center; justify-content: center; }
+  .case-detail-hero.tinted span { color: rgba(255,255,255,.92); font-family: "DM Serif Display", serif; font-style: italic; font-size: 34px; }
+  .case-detail h1 { font-size: clamp(32px, 5vw, 50px); margin-bottom: 22px; max-width: 20ch; }
+  .case-detail-body { max-width: 68ch; color: var(--muted); font-size: 17px; line-height: 1.7; }
+  .case-detail-body p { margin: 0 0 18px; }
+
+  /* ---------- content band ---------- */
+  .content-band { background: var(--ink); color: var(--cream); border-radius: 64px 64px 0 0; margin-top: -40px; position: relative; z-index: 2; padding-top: 110px; padding-bottom: 110px; }
+  .content-band .sec-eyebrow { color: var(--sand); }
+  .content-head { text-align: center; max-width: 640px; margin: 0 auto 64px; }
+  .content-head h2 { font-size: clamp(36px, 5.4vw, 58px); margin-bottom: 22px; }
+  .content-head p { color: color-mix(in srgb, var(--cream) 62%, transparent); font-size: 18px; }
+  .reel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 780px; margin: 0 auto; }
+  .reel {
+    aspect-ratio: 9/16; border-radius: 30px; border: 2px solid color-mix(in srgb, var(--cream) 24%, transparent);
+    background: color-mix(in srgb, var(--cream) 6%, transparent);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 18px; gap: 14px;
+    transition: transform .15s ease, background .15s ease;
+  }
+  .reel:hover { transform: translateY(-4px); background: color-mix(in srgb, var(--cream) 11%, transparent); }
+  .reel-play { width: 46px; height: 46px; border-radius: 50%; border: 2px solid var(--sand); display: flex; align-items: center; justify-content: center; color: var(--sand); }
+  .reel span { font-size: 13px; font-weight: 700; opacity: .85; }
+  .content-cta { text-align: center; margin-top: 60px; }
+  @media (max-width: 620px) { .reel-grid { grid-template-columns: repeat(2, 1fr); max-width: none; } }
+
+  /* ---------- timeline ---------- */
+  .about-page { padding-top: 100px; padding-bottom: 110px; }
+  .about-block + .about-block { margin-top: 110px; }
+  .timeline { max-width: 860px; margin: 0 auto; position: relative; }
+  .timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: var(--line); transform: translateX(-50%); }
+  .t-row { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; position: relative; padding-bottom: 60px; }
+  .t-row:last-child { padding-bottom: 0; }
+  .t-dot { position: absolute; left: 50%; top: 4px; width: 15px; height: 15px; border-radius: 50%; background: var(--ink); border: 3px solid var(--cream); transform: translateX(-50%); }
+  .t-label { text-align: right; padding-top: 4px; }
+  .t-row:nth-child(even) .t-label { order: 2; text-align: left; }
+  .t-row:nth-child(even) .t-card { order: 1; }
+  .t-date { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: var(--clay); margin-bottom: 6px; }
+  .t-label h3 { font-size: 24px; }
+  .t-card { border-radius: 22px; padding: 26px; }
+  .t-card h4 { font-family: "Inter", sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+  .t-card p { color: var(--muted); font-size: 14.5px; line-height: 1.6; margin: 0; }
+  @media (max-width: 760px) {
+    .timeline::before { left: 7px; }
+    .t-row, .t-row:nth-child(even) { grid-template-columns: 1fr; gap: 12px; padding-left: 28px; }
+    .t-row:nth-child(even) .t-label, .t-row:nth-child(even) .t-card { order: initial; text-align: left; }
+    .t-label { text-align: left; }
+    .t-dot { left: 7px; top: 4px; }
+  }
+
+  /* ---------- education ---------- */
+  .edu-grid { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+  .edu-card { border-radius: 22px; padding: 24px 28px; display: flex; gap: 20px; align-items: flex-start; }
+  .edu-badge { width: 46px; height: 46px; border-radius: 13px; background: var(--sand); border: 2px solid var(--ink); flex: none; display: flex; align-items: center; justify-content: center; }
+  .edu-school { font-size: 17px; font-weight: 700; margin-bottom: 3px; }
+  .edu-course { color: var(--clay); font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .edu-meta { font-size: 12.5px; color: var(--faint); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+
+  /* ---------- skills ---------- */
+  .skills-wrap { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 26px; }
+  .skill-cat { display: flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 12px; }
+  .skill-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 9px; }
+  .skill-tag { border: 2px solid var(--ink); border-radius: 999px; padding: 8px 16px; font-size: 13px; font-weight: 700; background: var(--paper); }
+
+  /* ---------- interests ---------- */
+  .interests-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 780px; margin: 0 auto; }
+  .interest-card { perspective: 1200px; aspect-ratio: 1; cursor: pointer; }
+  .interest-inner { position: relative; width: 100%; height: 100%; transition: transform .5s cubic-bezier(.2,.8,.3,1); transform-style: preserve-3d; }
+  .interest-card.flipped .interest-inner { transform: rotateY(180deg); }
+  .interest-face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 26px; border: 2px solid var(--ink); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 18px; text-align: center; box-shadow: 6px 6px 0 var(--shadow-color); }
+  .interest-front { background: var(--paper); }
+  .interest-front .emoji { font-size: 40px; }
+  .interest-front span { font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: .05em; }
+  .interest-back { background: var(--clay); color: #fff; transform: rotateY(180deg); font-family: "DM Serif Display", serif; font-style: italic; font-size: 16px; line-height: 1.4; }
+  .interests-hint { text-align: center; font-size: 12px; color: var(--faint); margin-top: 24px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+  @media (max-width: 620px) { .interests-grid { grid-template-columns: 1fr; max-width: 300px; } }
+
+  /* ---------- testimonials marquee ---------- */
+  .quotes { padding-top: 100px; padding-bottom: 100px; background: var(--card); border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+  .marquee { overflow-x: hidden; overflow-y: visible; padding-top: 24px; }
+  .marquee-track { display: flex; gap: 26px; width: max-content; animation: marquee-scroll 34s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  @keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .quote-card { border-radius: 30px; padding: 36px; position: relative; width: 380px; flex: none; }
+  .quote-badge {
+    position: absolute; top: -20px; left: -12px; width: 48px; height: 48px; border-radius: 50%;
+    background: var(--clay); border: 2px solid var(--ink); color: #fff; display: flex; align-items: center; justify-content: center;
+    transform: rotate(-10deg); box-shadow: 4px 4px 0 var(--shadow-color);
+  }
+  .quote-card p { font-family: "DM Serif Display", serif; font-style: italic; font-size: 17px; line-height: 1.5; margin: 8px 0 26px; }
+  .quote-who { display: flex; align-items: center; gap: 14px; }
+  .quote-avatar { width: 46px; height: 46px; border-radius: 13px; border: 2px solid var(--ink); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; background: var(--sand); flex: none; }
+  .quote-name { font-weight: 700; font-size: 14.5px; }
+  .quote-role { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--faint); }
+
+  /* ---------- contact ---------- */
+  .contact { padding-top: 110px; padding-bottom: 110px; }
+  .contact-panel {
+    background: var(--clay); color: #fff; border: 2px solid var(--ink); border-radius: 56px;
+    padding: 64px 48px; position: relative; overflow: hidden; box-shadow: 8px 8px 0 var(--shadow-color);
+  }
+  .contact-blob { position: absolute; top: -60px; right: -60px; width: 260px; height: 260px; border-radius: 50%; background: rgba(255,255,255,.14); }
+  .contact-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; position: relative; }
+  .contact-hand { color: var(--sand); font-size: 26px; margin-bottom: 12px; display: block; }
+  .contact-grid h2 { font-size: clamp(36px, 5vw, 58px); line-height: 1; margin-bottom: 22px; }
+  .contact-grid > div:first-child > p { font-size: 18px; color: rgba(255,255,255,.9); margin-bottom: 30px; max-width: 40ch; }
+  .contact-link { display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 17px; margin-bottom: 18px; }
+  .contact-link .ic-box { width: 40px; height: 40px; border-radius: 11px; background: rgba(255,255,255,.16); display: flex; align-items: center; justify-content: center; flex: none; }
+  .contact-link:hover .ic-box { background: var(--sand); color: var(--ink); }
+  .social-row { display: flex; gap: 18px; margin-top: 22px; }
+  .social-row a { width: 44px; height: 44px; border-radius: 12px; border: 2px solid rgba(255,255,255,.4); display: flex; align-items: center; justify-content: center; font-size: 18px; transition: transform .15s ease, background .15s ease; }
+  .social-row a:hover { transform: translateY(-3px); background: rgba(255,255,255,.14); }
+  .contact-card { background: var(--paper); color: var(--ink); border: 2px solid var(--ink); border-radius: 30px; padding: 34px; }
+  .field { margin-bottom: 18px; }
+  .field label { display: block; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 7px; color: var(--muted); }
+  .field input, .field textarea {
+    width: 100%; border: 2px solid var(--ink); border-radius: 12px; padding: 12px 14px; font-family: inherit; font-size: 14.5px;
+    background: var(--cream); color: var(--ink); outline: none; resize: none;
+  }
+  .field input:focus, .field textarea:focus { background: var(--card); }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .contact-card .btn { width: 100%; justify-content: center; }
+  @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } .contact-panel { padding: 40px 26px; } }
+  @media (max-width: 500px) { .field-row { grid-template-columns: 1fr; } }
+
+  /* ---------- footer ---------- */
+  .site-footer { padding: 70px 24px 50px; text-align: center; }
+  .footer-mark { font-family: "DM Serif Display", serif; font-size: 26px; text-transform: uppercase; margin-bottom: 8px; }
+  .footer-mark .dot { color: var(--clay); }
+  .footer-tag { color: var(--faint); font-size: 10px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 30px; }
+  .footer-social { display: flex; justify-content: center; gap: 14px; margin-bottom: 40px; }
+  .footer-social a {
+    width: 40px; height: 40px; border-radius: 11px; border: 2px solid var(--ink); background: var(--paper);
+    display: flex; align-items: center; justify-content: center; font-size: 17px;
+    transition: transform .15s ease, background .15s ease;
+  }
+  .footer-social a:hover { transform: translateY(-3px); background: var(--sand); }
+  .footer-links { display: flex; justify-content: center; gap: 34px; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 46px; }
+  .footer-links a:hover { color: var(--clay); }
+  .footer-legal { font-size: 10px; color: var(--faint); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
+</style>
 </head>
 <body>
 
-  <div class="ticker" role="status">
-    <div class="ticker-track">
-      <div class="ticker-group">
-        <span>🚧 Site is a work in progress</span>
-        <span>🚧 Site is a work in progress</span>
-        <span>🚧 Site is a work in progress</span>
-        <span>🚧 Site is a work in progress</span>
-      </div>
-      <div class="ticker-group" aria-hidden="true">
-        <span>🚧 Site is a work in progress</span>
-        <span>🚧 Site is a work in progress</span>
-        <span>🚧 Site is a work in progress</span>
-        <span>🚧 Site is a work in progress</span>
-      </div>
+<header class="nav">
+  <div class="wrap">
+    <div class="nav-brand">
+      <a href="#home" style="text-decoration:none; display:flex; align-items:center;">
+        <img src="assets/celest-logo-web.png" alt="Celest" class="nav-logo">
+      </a>
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#work" data-nav="work">Work</a>
+      <a href="#about" data-nav="about">About</a>
+      <a href="#contact" data-nav="contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <button class="theme-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle color theme">
+        <svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px;"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a href="#contact" class="btn btn-ink" style="padding:10px 18px;">Let's talk</a>
     </div>
   </div>
+</header>
 
-  <header class="nav">
-    <a href="#top" class="nav-mark">celest.</a>
-    <nav class="nav-links">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#contact">Let's talk</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero" id="top">
-      <div class="hero-inner">
-        <span class="spark spark-1">✦</span>
-        <span class="spark spark-2">✳</span>
-        <span class="spark spark-3">✦</span>
-
-        <p class="hero-eyebrow">Marketing &amp; SEO strategist · Singapore</p>
-
-        <div class="hero-photo">
-          <img src="assets/celest-new-web.jpg" alt="Celest Lee">
-        </div>
-        <div class="hero-badge">
-          <span class="dot"></span>
-          Open to freelance work
-        </div>
-
-        <h1>hi, I'm <em>Celest</em><br>I build organic<br>growth that <em>compounds</em>.</h1>
-
-        <p class="hero-sub">
-          I plan and run content + SEO strategy across healthcare and wellness brands —
-          keyword research, on-page optimization, and content systems that keep working
-          long after I hit publish. Currently completing my BSc in Marketing at SUSS.
-        </p>
-
+<!-- ================= HOME ================= -->
+<main class="page" data-page="home">
+  <section class="hero">
+    <div class="blob blob-1 floaty" style="--r:0deg"></div>
+    <div class="blob blob-2 floaty" style="--r:0deg; animation-delay:1.4s"></div>
+    <div class="wrap hero-grid">
+      <div>
+        <span class="hand hero-hand">Hi, I'm Celest! 👋</span>
+        <h1>Marketing<br><span class="scribble">with a side</span><br>of storytelling.</h1>
+        <p class="hero-sub">I help brands find their voice through data-driven strategy and authentic content. No boring corporate talk, just growth that feels real.</p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="#work">See case studies</a>
-          <a class="btn btn-ghost" href="assets/Celest-Lee-Resume.pdf" download>⬇ Download Resume</a>
-          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+          <a href="#work" class="btn btn-ink">See my work
+            <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#home-content" class="btn btn-sand">Content samples</a>
         </div>
-
-        <p class="scroll-note">(scroll down &amp; explore)</p>
       </div>
-      <div class="hero-glow"></div>
-    </section>
+      <div>
+        <div class="hero-photo-frame">
+          <div class="frame-back-1"></div>
+          <div class="frame-back-2"></div>
+          <div class="frame-photo"><img src="assets/celest-new-web.jpg" alt="Celest Lee"></div>
+          <div class="hero-sticker floaty"><span>Strategy +<br>Creative!</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="about" id="about">
-      <div class="about-grid">
+  <section class="brands">
+    <div class="wrap">
+      <p class="brands-label">Brands I've worked with</p>
+      <div class="brands-row">
+        <span>Physio &amp; Sole</span>
+        <span>AnjouHealth</span>
+        <span>Women &amp; Children Centre</span>
+        <span style="font-style:italic;">Wunderfolks</span>
+        <span style="font-family:'DM Serif Display',serif; font-style:italic;">Two Hungry Humans</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="work" style="padding-top:110px;">
+    <div class="wrap">
+      <div class="sec-head">
         <div>
-          <p class="eyebrow">About</p>
-          <h2>A little about my work</h2>
-          <p>
-            I'm a digital marketer and SEO specialist based in Singapore, managing content and
-            search strategy across four healthcare and wellness brands. My work spans keyword
-            research, on-page optimization, content calendars, and the reporting that proves it's
-            working — plus the AI and automation workflows that keep all of it moving without
-            slowing down.
-          </p>
-          <p>
-            Outside client work, I co-run <a href="https://instagram.com/two.hungryhumans" target="_blank" rel="noopener">@two.hungryhumans</a>,
-            a Singapore food review page — where the same content instincts show up in a much
-            more delicious form.
-          </p>
+          <div class="hand sec-eyebrow">Projects I'm proud of</div>
+          <h2 class="sec-title">The Portfolio</h2>
         </div>
-        <div class="about-tools">
-          <p class="eyebrow">Tools I work in</p>
-          <ul class="tool-list">
-            <li>Google Search Console</li>
-            <li>Google Analytics 4</li>
-            <li>Notion</li>
-            <li>Zapier</li>
-            <li>Canva</li>
-            <li>Claude</li>
-          </ul>
-        </div>
+        <p class="sec-note">A mix of strategic marketing, SEO, and brand storytelling.</p>
       </div>
-    </section>
-
-    <section class="awards" id="awards">
-      <p class="eyebrow">Recognition</p>
-      <h2>Awards &amp; certifications</h2>
-      <div class="awards-grid">
-        <div class="award-item">
-          <span class="award-icon" style="background:#3b82c6">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 4h10v4a5 5 0 0 1-10 0V4Z"/>
-              <path d="M17 5h2a2 2 0 0 1 0 4h-1M7 5H5a2 2 0 0 0 0 4h1"/>
-              <path d="M12 13v4M8 21h8"/>
-            </svg>
-          </span>
-          <div>
-            <strong>National Youth Business Challenge</strong>
-            <span>Social Media Award</span>
-          </div>
-        </div>
-        <div class="award-item">
-          <span class="award-icon" style="background:#4f7a5c">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="#fff">
-              <rect x="3" y="12" width="4" height="8" rx="1"/>
-              <rect x="10" y="7" width="4" height="13" rx="1"/>
-              <rect x="17" y="3" width="4" height="17" rx="1"/>
-            </svg>
-          </span>
-          <div>
-            <strong>Google Analytics</strong>
-            <span>Individual Qualification</span>
-          </div>
-        </div>
-        <div class="award-item">
-          <span class="award-icon" style="background:#8a5bc6">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22v-7"/>
-              <path d="M5 8c0 5 3 8 7 7 4-1 6-6 5-11-5-1-10 1-12 4Z"/>
-            </svg>
-          </span>
-          <div>
-            <strong>Peer Led Guide</strong>
-            <span>Training Program</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="work" id="work">
-      <p class="eyebrow">Selected work</p>
-      <h2>Case studies</h2>
-      <p class="section-note">Five brands, one system — content and SEO built to compound. Full writeups in progress.</p>
 
       <div class="case-grid">
-        <article class="case-card">
-          <div class="case-tag">Healthcare · SEO &amp; Content</div>
-          <h3>Physio &amp; Sole Clinic</h3>
-          <p>Ongoing content and SEO strategy for a Singapore physiotherapy and podiatry clinic — keyword research, on-page optimization, and a content calendar built around patient search intent.</p>
-          <p class="case-result">[ Add a result — e.g. organic traffic or ranking movement ]</p>
+        <article class="case-feature pop">
+          <div class="case-feature-grid">
+            <div>
+              <span class="case-tag">Case Study · @two.hungryhumans</span>
+              <h3>Building a community of <em style="color:var(--clay); font-style:italic;">hungry</em> followers.</h3>
+              <p>Co-founded and run this Singapore food review page alongside my partner. Content strategy, filming, editing, captions, and social growth, entirely self-produced with no paid sponsorships.</p>
+              <div class="stat-row">
+                <div class="stat"><div class="stat-label">First 30 days</div><div class="stat-value">2 → 176 followers</div></div>
+                <div class="stat"><div class="stat-label">Reach</div><div class="stat-value">14,977 accounts</div></div>
+                <div class="stat"><div class="stat-label">Views</div><div class="stat-value">28.3K reels &amp; posts</div></div>
+              </div>
+              <a href="#case-thh" class="btn btn-ink">Read the story
+                <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+            <div class="case-media"><img src="assets/thh-logo-web.jpg" alt="Two Hungry Humans logo"></div>
+          </div>
         </article>
 
-        <article class="case-card">
-          <div class="case-tag">Wellness · SEO &amp; Content</div>
-          <h3>Anjou Health</h3>
-          <p>Content and search strategy supporting Anjou Health's organic visibility, including on-page SEO and a content system built for consistency.</p>
-          <p class="case-result">[ Add a result ]</p>
-        </article>
+        <a href="#case-physio" class="case-card-link">
+          <article class="case-card pop">
+            <div class="case-media-sm"><img src="assets/physio-sole-web.jpg" alt="Physio &amp; Sole Clinic team"></div>
+            <div class="case-tag">Physio &amp; Sole Clinic</div>
+            <h3>Making medical marketing feel <em style="font-style:italic;">human.</em></h3>
+            <p>Ongoing content and SEO strategy for a Singapore physiotherapy and podiatry clinic. Keyword research, on-page optimization, and a content calendar built around patient search intent.</p>
+            <span class="case-status">Full write-up in progress</span>
+          </article>
+        </a>
 
-        <article class="case-card">
-          <div class="case-tag">SEO &amp; Content</div>
-          <h3>WACC</h3>
-          <p>Managing content and SEO to grow organic search presence, with a focus on structured, search-intent-led content planning.</p>
-          <p class="case-result">[ Add a result ]</p>
-        </article>
-
-        <article class="case-card">
-          <div class="case-tag">Education · SEO &amp; Content</div>
-          <h3>Allied Health Academy</h3>
-          <p>Content and SEO strategy for an allied health education brand, connecting course content to what prospective students are actually searching for.</p>
-          <p class="case-result">[ Add a result ]</p>
-        </article>
-
-        <article class="case-card case-card-feature">
-          <div class="case-tag">Food &amp; Content · Founder</div>
-          <h3>Two Hungry Humans</h3>
-          <p>Co-founded and run a Singapore food review page — content planning, shoots, captions, and a posting system across TikTok, Instagram, and Google Maps.</p>
-          <p class="case-result"><a href="https://linktr.ee/Twohungryhumans" target="_blank" rel="noopener">See the page →</a></p>
-        </article>
+        <a href="#case-anjou" class="case-card-link">
+          <article class="case-card pop">
+            <div class="case-media-sm"><img src="assets/anjou-web.jpg" alt="AnjouHealth event"></div>
+            <div class="case-tag">AnjouHealth</div>
+            <h3>A confident, minimal <em style="font-style:italic;">wellness</em> vibe.</h3>
+            <p>Content and search strategy supporting AnjouHealth's organic visibility as a sister brand to Physio &amp; Sole, including on-page SEO and a content system built for consistency.</p>
+            <span class="case-status">Full write-up in progress</span>
+          </article>
+        </a>
       </div>
-    </section>
 
-    <section class="testimonials" id="testimonials">
-      <p class="eyebrow">What people say</p>
-      <h2>Recommendations</h2>
-      <div class="testimonial-grid">
-        <blockquote class="t-card">
-          <p>"Her expertise in social media graphic design and copywriting has significantly contributed to our marketing success... a versatile asset to any marketing team."</p>
-          <footer>Zuffean Zamri <span>· managed Celest directly</span></footer>
-        </blockquote>
-        <blockquote class="t-card">
-          <p>"I highly recommend Celest... she is quite responsible! She has an eye for details and does it quickly too! The design sense is awesome, could meet my expectations!"</p>
-          <footer>Polly Wang <span>· was Celest's client</span></footer>
-        </blockquote>
-        <blockquote class="t-card">
-          <p>"She is truly the creative spark that every marketing department needs... Celest is a rare 'all-in-one' creative talent."</p>
-          <footer>Jia Yan Chong <span>· senior colleague</span></footer>
-        </blockquote>
+      <div style="text-align:center; margin-top:40px;">
+        <a href="#work" class="btn btn-sand">See all projects
+          <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="contact" id="contact">
-      <p class="eyebrow">Get in touch</p>
-      <h2>Let's talk about your search strategy.</h2>
-      <p class="section-note">Open to freelance and client work.</p>
-      <div class="contact-links">
-        <a class="btn btn-primary" href="mailto:celestleesl@gmail.com">celestleesl@gmail.com</a>
-        <a class="btn btn-ghost" href="https://instagram.com/two.hungryhumans" target="_blank" rel="noopener">@two.hungryhumans</a>
+  <section class="content-band" id="home-content">
+    <div class="wrap">
+      <div class="content-head">
+        <span class="hand" style="color:var(--sand); font-size:26px; display:inline-block; margin-bottom:14px; transform:rotate(-4deg);">Creator Mode: ON</span>
+        <h2>Content, IRL</h2>
+        <p>@two.hungryhumans is where the food content lives, reels, posts, everything self-produced.</p>
       </div>
-    </section>
-  </main>
+      <div class="reel-grid">
+        <a class="reel" href="https://www.instagram.com/reel/DZzieARPbLc/" target="_blank" rel="noopener">
+          <span class="reel-play"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="width:18px;height:18px;"><path d="M8 5v14l11-7z"/></svg></span>
+          <span>Watch on Instagram</span>
+        </a>
+        <a class="reel" href="https://www.instagram.com/reel/DacyOQWPJxP/" target="_blank" rel="noopener">
+          <span class="reel-play"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="width:18px;height:18px;"><path d="M8 5v14l11-7z"/></svg></span>
+          <span>Watch on Instagram</span>
+        </a>
+        <a class="reel" href="https://www.instagram.com/reel/DaFz6YMva-l/" target="_blank" rel="noopener">
+          <span class="reel-play"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="width:18px;height:18px;"><path d="M8 5v14l11-7z"/></svg></span>
+          <span>Watch on Instagram</span>
+        </a>
+      </div>
+      <div class="content-cta">
+        <a href="https://instagram.com/two.hungryhumans" target="_blank" rel="noopener" class="btn btn-sand">Follow @two.hungryhumans
+          <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
 
-  <footer class="site-footer">
-    <span>© 2026 Celest Lee</span>
-    <span>Built with Claude, deployed on Vercel</span>
-  </footer>
+  <section class="quotes">
+    <div class="wrap">
+      <div class="sec-head center">
+        <div class="hand sec-eyebrow">Real love</div>
+        <h2 class="sec-title">Kind Words</h2>
+      </div>
+    </div>
+    <div class="marquee">
+      <div class="marquee-track" id="marqueeTrack"></div>
+    </div>
+  </section>
+
+  <section class="contact" id="home-contact">
+    <div class="wrap">
+      <div class="contact-panel">
+        <div class="contact-blob"></div>
+        <div class="contact-grid">
+          <div>
+            <span class="hand contact-hand">Let's be friends!</span>
+            <h2>Got a wild<br>idea?</h2>
+            <p>Whether you want to chat about a marketing overhaul, a content collab, or just want to say hi, I'm all ears!</p>
+            <a href="mailto:celestleesl@gmail.com" class="contact-link">
+              <span class="ic-box"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+              celestleesl@gmail.com
+            </a>
+            <div class="social-row">
+              <a href="https://instagram.com/two.hungryhumans" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/celestleesl" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h4v16H4zM4 4a2 2 0 1 0 4 0a2 2 0 1 0-4 0M11 9h4v11h-4zM11 13c0-2 2-4 4-4c2.5 0 4 1.5 4 4v7h-4v-6c0-1-.5-2-1.5-2S12 12 11 13Z"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <form onsubmit="event.preventDefault()">
+              <div class="field-row">
+                <div class="field"><label>Name</label><input type="text"></div>
+                <div class="field"><label>Email</label><input type="email"></div>
+              </div>
+              <div class="field"><label>The mission</label><textarea rows="4"></textarea></div>
+              <button type="submit" class="btn btn-ink">Send the signal!</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= ABOUT ================= -->
+<main class="page" data-page="about">
+  <section class="about-page">
+    <div class="wrap">
+      <div class="sec-head center">
+        <div class="hand sec-eyebrow">My story</div>
+        <h2 class="sec-title">About Me</h2>
+      </div>
+
+      <div class="about-block">
+        <div class="sec-head center" style="margin-bottom:40px;">
+          <h3 style="font-size:26px;">The Journey</h3>
+        </div>
+        <div class="timeline">
+          <div class="t-row">
+            <div class="t-label"><div class="t-date">2024 — Now</div><h3>Multi-Brand Marketing</h3></div>
+            <div class="t-card pop">
+              <h4>Marketing Executive, Physio &amp; Sole / AnjouHealth</h4>
+              <p>Planning and executing content, SEO, and campaigns across two sister healthcare brands. Email, social, paid ads, and the reporting that shows what's working.</p>
+            </div>
+            <div class="t-dot"></div>
+          </div>
+          <div class="t-row">
+            <div class="t-label"><div class="t-date">2022 — 2023</div><h3>Wunderfolks</h3></div>
+            <div class="t-card pop">
+              <h4>Marketing &amp; Graphic Designer</h4>
+              <p>Built the content calendar, designed marketing collateral, and wrote copy for campaigns across web, e-commerce, and social. Learning how growth compounds when the system is right.</p>
+            </div>
+            <div class="t-dot"></div>
+          </div>
+          <div class="t-row">
+            <div class="t-label"><div class="t-date">2021</div><h3>Where It Started</h3></div>
+            <div class="t-card pop">
+              <h4>Design &amp; Marketing Intern, Paper Carpenter</h4>
+              <p>Mock-ups, presentation slides, and my first real taste of client work, plus workshops, photography, and video for promotional use.</p>
+            </div>
+            <div class="t-dot"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-block">
+        <div class="sec-head center" style="margin-bottom:40px;">
+          <h3 style="font-size:26px;">Education</h3>
+        </div>
+        <div class="edu-grid">
+          <div class="edu-card pop">
+            <div class="edu-badge">
+              <svg class="icon" viewBox="0 0 24 24" style="width:20px;height:20px;"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg>
+            </div>
+            <div>
+              <div class="edu-school">Singapore University of Social Sciences</div>
+              <div class="edu-course">BSc in Marketing (Part-Time), In Progress</div>
+              <div class="edu-meta">Aug 2024 – Oct 2028 · GPA 3.56</div>
+            </div>
+          </div>
+          <div class="edu-card pop">
+            <div class="edu-badge">
+              <svg class="icon" viewBox="0 0 24 24" style="width:20px;height:20px;"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg>
+            </div>
+            <div>
+              <div class="edu-school">Nanyang Polytechnic</div>
+              <div class="edu-course">Diploma, Content Creation for E-Commerce (Work-Study)</div>
+              <div class="edu-meta">Jul 2022 – Jul 2023 · GPA 3.78/4.0</div>
+            </div>
+          </div>
+          <div class="edu-card pop">
+            <div class="edu-badge">
+              <svg class="icon" viewBox="0 0 24 24" style="width:20px;height:20px;"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg>
+            </div>
+            <div>
+              <div class="edu-school">Nanyang Polytechnic</div>
+              <div class="edu-course">Diploma, Design &amp; Visual Communications</div>
+              <div class="edu-meta">2019 – 2021</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-block">
+        <div class="sec-head center" style="margin-bottom:40px;">
+          <h3 style="font-size:26px;">Skills</h3>
+        </div>
+        <div class="skills-wrap">
+          <div>
+            <div class="skill-cat"><span class="skill-dot" style="background:#c65d3b;"></span>SEO &amp; Content</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Keyword Research</span>
+              <span class="skill-tag">On-page SEO</span>
+              <span class="skill-tag">Content Strategy</span>
+              <span class="skill-tag">Copywriting</span>
+            </div>
+          </div>
+          <div>
+            <div class="skill-cat"><span class="skill-dot" style="background:#3b5bc6;"></span>Analytics &amp; Reporting</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Google Analytics 4</span>
+              <span class="skill-tag">Search Console</span>
+              <span class="skill-tag">Reporting</span>
+            </div>
+          </div>
+          <div>
+            <div class="skill-cat"><span class="skill-dot" style="background:#4f7a5c;"></span>Tools</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Notion</span>
+              <span class="skill-tag">Zapier</span>
+              <span class="skill-tag">Canva</span>
+              <span class="skill-tag">Claude</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-block">
+        <div class="sec-head center" style="margin-bottom:40px;">
+          <div class="hand sec-eyebrow" style="margin-bottom:0;">Off the clock</div>
+          <h3 style="font-size:26px;">Things I Enjoy</h3>
+        </div>
+        <div class="interests-grid">
+          <div class="interest-card" tabindex="0" role="button" aria-label="Coffee, tap to reveal">
+            <div class="interest-inner">
+              <div class="interest-face interest-front"><span class="emoji">☕</span><span>Coffee</span></div>
+              <div class="interest-face interest-back">Oat milk flat white, always. Best planning happens over one.</div>
+            </div>
+          </div>
+          <div class="interest-card" tabindex="0" role="button" aria-label="Travel, tap to reveal">
+            <div class="interest-inner">
+              <div class="interest-face interest-front"><span class="emoji">✈️</span><span>Travel</span></div>
+              <div class="interest-face interest-back">Always plotting the next trip. Good food and better views.</div>
+            </div>
+          </div>
+          <div class="interest-card" tabindex="0" role="button" aria-label="Tattoos, tap to reveal">
+            <div class="interest-inner">
+              <div class="interest-face interest-front"><span class="emoji">🖋️</span><span>Tattoos</span></div>
+              <div class="interest-face interest-back">A few and counting. Each one has its own story.</div>
+            </div>
+          </div>
+        </div>
+        <p class="interests-hint">Tap a card to flip it</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= WORK ================= -->
+<main class="page" data-page="work">
+  <section class="work" style="padding-top:100px;">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="hand sec-eyebrow">Projects I'm proud of</div>
+          <h2 class="sec-title">The Portfolio</h2>
+        </div>
+        <p class="sec-note">A mix of strategic marketing, SEO, and brand storytelling.</p>
+      </div>
+
+      <div class="case-grid four">
+        <a href="#case-thh" class="case-card-link">
+          <article class="case-card pop">
+            <div class="case-media-sm"><img src="assets/thh-logo-web.jpg" alt="Two Hungry Humans logo"></div>
+            <div class="case-tag">Two Hungry Humans</div>
+            <h3>Building a community of <em style="font-style:italic;">hungry</em> followers.</h3>
+            <p>Content, filming, and social growth for a self-produced Singapore food review page.</p>
+            <span class="case-status">2 → 176 followers in 30 days</span>
+          </article>
+        </a>
+        <a href="#case-physio" class="case-card-link">
+          <article class="case-card pop">
+            <div class="case-media-sm"><img src="assets/physio-sole-web.jpg" alt="Physio &amp; Sole Clinic team"></div>
+            <div class="case-tag">Physio &amp; Sole Clinic</div>
+            <h3>Making medical marketing feel <em style="font-style:italic;">human.</em></h3>
+            <p>SEO and content strategy for a Singapore physiotherapy and podiatry clinic.</p>
+            <span class="case-status">Full write-up in progress</span>
+          </article>
+        </a>
+        <a href="#case-anjou" class="case-card-link">
+          <article class="case-card pop">
+            <div class="case-media-sm"><img src="assets/anjou-web.jpg" alt="AnjouHealth event"></div>
+            <div class="case-tag">AnjouHealth</div>
+            <h3>A confident, minimal <em style="font-style:italic;">wellness</em> vibe.</h3>
+            <p>Organic visibility strategy for a sister brand to Physio &amp; Sole.</p>
+            <span class="case-status">Full write-up in progress</span>
+          </article>
+        </a>
+        <a href="#case-wcc" class="case-card-link">
+          <article class="case-card pop">
+            <div class="case-media-sm m-sage tinted"><span>Women &amp; Children Centre</span></div>
+            <div class="case-tag">Women &amp; Children Centre</div>
+            <h3>Structured content for a <em style="font-style:italic;">sensitive</em> subject.</h3>
+            <p>Search-intent-led content planning to grow organic presence.</p>
+            <span class="case-status">Full write-up in progress</span>
+          </article>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= CONTACT ================= -->
+<main class="page" data-page="contact">
+  <section class="contact" style="padding-top:100px;">
+    <div class="wrap">
+      <div class="sec-head center" style="margin-bottom:40px;">
+        <div class="hand sec-eyebrow">Say hello</div>
+        <h2 class="sec-title">Get In Touch</h2>
+      </div>
+      <div class="contact-panel">
+        <div class="contact-blob"></div>
+        <div class="contact-grid">
+          <div>
+            <span class="hand contact-hand">Let's be friends!</span>
+            <h2>Got a wild<br>idea?</h2>
+            <p>Whether you want to chat about a marketing overhaul, a content collab, or just want to say hi, I'm all ears!</p>
+            <a href="mailto:celestleesl@gmail.com" class="contact-link">
+              <span class="ic-box"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+              celestleesl@gmail.com
+            </a>
+            <div class="social-row">
+              <a href="https://instagram.com/two.hungryhumans" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/celestleesl" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h4v16H4zM4 4a2 2 0 1 0 4 0a2 2 0 1 0-4 0M11 9h4v11h-4zM11 13c0-2 2-4 4-4c2.5 0 4 1.5 4 4v7h-4v-6c0-1-.5-2-1.5-2S12 12 11 13Z"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <form onsubmit="event.preventDefault()">
+              <div class="field-row">
+                <div class="field"><label>Name</label><input type="text"></div>
+                <div class="field"><label>Email</label><input type="email"></div>
+              </div>
+              <div class="field"><label>The mission</label><textarea rows="4"></textarea></div>
+              <button type="submit" class="btn btn-ink">Send the signal!</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= CASE DETAIL: TWO HUNGRY HUMANS ================= -->
+<main class="page" data-page="case-thh">
+  <section class="case-detail">
+    <div class="wrap">
+      <a href="#work" class="back-link"><svg class="icon" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>Back to work</a>
+      <div class="case-detail-hero"><img src="assets/thh-logo-web.jpg" alt="Two Hungry Humans logo"></div>
+      <span class="case-tag">Case Study · @two.hungryhumans</span>
+      <h1>Building a community of hungry followers.</h1>
+      <div class="case-detail-body">
+        <p>Co-founded and run this Singapore food review page alongside my partner, covering Singapore and Johor Bahru. I handle end-to-end content strategy: filming, editing, caption writing, and social growth across Instagram and TikTok.</p>
+        <p>Entirely self-produced with no paid sponsorships. In the first 30 days, the page grew from 2 to 176 followers, reached 14,977 accounts, and generated 28.3K views across reels and posts.</p>
+      </div>
+      <div class="stat-row" style="max-width:600px; margin-top:36px;">
+        <div class="stat"><div class="stat-label">First 30 days</div><div class="stat-value">2 → 176 followers</div></div>
+        <div class="stat"><div class="stat-label">Reach</div><div class="stat-value">14,977 accounts</div></div>
+        <div class="stat"><div class="stat-label">Views</div><div class="stat-value">28.3K reels &amp; posts</div></div>
+      </div>
+      <div style="margin-top:36px;">
+        <a href="https://instagram.com/two.hungryhumans" target="_blank" rel="noopener" class="btn btn-ink">Visit @two.hungryhumans
+          <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= CASE DETAIL: PHYSIO & SOLE ================= -->
+<main class="page" data-page="case-physio">
+  <section class="case-detail">
+    <div class="wrap">
+      <a href="#work" class="back-link"><svg class="icon" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>Back to work</a>
+      <div class="case-detail-hero"><img src="assets/physio-sole-web.jpg" alt="Physio &amp; Sole Clinic team at a roadshow"></div>
+      <span class="case-tag">Case Study · Physio &amp; Sole Clinic</span>
+      <h1>Making medical marketing feel human.</h1>
+      <div class="case-detail-body">
+        <p>Ongoing content and SEO strategy for a Singapore physiotherapy and podiatry clinic. The work spans keyword research, on-page optimization, and a content calendar built around what patients are actually searching for when they're in pain and looking for answers.</p>
+        <p>Also involved in-person activations, like this roadshow booth promoting the clinic's foot care line.</p>
+      </div>
+      <div style="margin-top:36px;">
+        <span class="case-status">Full write-up in progress</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= CASE DETAIL: ANJOUHEALTH ================= -->
+<main class="page" data-page="case-anjou">
+  <section class="case-detail">
+    <div class="wrap">
+      <a href="#work" class="back-link"><svg class="icon" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>Back to work</a>
+      <div class="case-detail-hero"><img src="assets/anjou-web.jpg" alt="AnjouHealth team on-site"></div>
+      <span class="case-tag">Case Study · AnjouHealth</span>
+      <h1>A confident, minimal wellness vibe.</h1>
+      <div class="case-detail-body">
+        <p>AnjouHealth is a sister brand to Physio &amp; Sole, and I manage its digital content alongside that role as part of a multi-brand marketing team. The work includes social channels, blog posts, and website updates aimed at strengthening outreach and engagement.</p>
+        <p>Also on the ground for event support, translating workplace health and safety topics into clear, visually engaging campaigns.</p>
+      </div>
+      <div style="margin-top:36px;">
+        <span class="case-status">Full write-up in progress</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= CASE DETAIL: WOMEN & CHILDREN CENTRE ================= -->
+<main class="page" data-page="case-wcc">
+  <section class="case-detail">
+    <div class="wrap">
+      <a href="#work" class="back-link"><svg class="icon" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>Back to work</a>
+      <div class="case-detail-hero tinted m-sage"><span>Women &amp; Children Centre</span></div>
+      <span class="case-tag">Case Study · Women &amp; Children Centre</span>
+      <h1>Structured content for a sensitive subject.</h1>
+      <div class="case-detail-body">
+        <p>Managing content and SEO to grow organic search presence, with a focus on structured, search-intent-led content planning for a subject that calls for extra care and clarity.</p>
+      </div>
+      <div style="margin-top:36px;">
+        <span class="case-status">Full write-up in progress</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-mark">Celest<span class="dot">.</span></div>
+  <p class="footer-tag">Marketing with heart &amp; grit</p>
+  <div class="footer-social">
+    <a href="https://instagram.com/two.hungryhumans" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/celestleesl" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h4v16H4zM4 4a2 2 0 1 0 4 0a2 2 0 1 0-4 0M11 9h4v11h-4zM11 13c0-2 2-4 4-4c2.5 0 4 1.5 4 4v7h-4v-6c0-1-.5-2-1.5-2S12 12 11 13Z"/></svg>
+    </a>
+  </div>
+  <div class="footer-links">
+    <a href="#home">Home</a>
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <p class="footer-legal">© 2026 Celest Lee — All Rights Reserved</p>
+</footer>
+
+<script>
+  // theme toggle
+  const themeBtn = document.getElementById('themeToggle');
+  const root = document.documentElement;
+  themeBtn.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme');
+    if (current === 'dark') { root.setAttribute('data-theme', 'light'); }
+    else if (current === 'light') { root.removeAttribute('data-theme'); }
+    else { root.setAttribute('data-theme', 'dark'); }
+  });
+
+  // interest card flip
+  document.querySelectorAll('.interest-card').forEach(card => {
+    const toggle = () => card.classList.toggle('flipped');
+    card.addEventListener('click', toggle);
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+  });
+
+  // testimonials marquee (build from data, duplicated for seamless loop)
+  const testimonials = [
+    { quote: "Her expertise in social media graphic design and copywriting has significantly contributed to our marketing success... a versatile asset to any marketing team.", name: "Zuffean Zamri", role: "Managed Celest directly", initials: "ZZ", bg: "var(--sand)" },
+    { quote: "I highly recommend Celest... she has an eye for details and does it quickly too! The design sense is awesome, could meet my expectations!", name: "Polly Wang", role: "Was Celest's client", initials: "PW", bg: "var(--sage)" },
+    { quote: "She is truly the creative spark that every marketing department needs... Celest is a rare 'all-in-one' creative talent.", name: "Jia Yan Chong", role: "Senior colleague", initials: "JC", bg: "var(--sand)" },
+  ];
+  const track = document.getElementById('marqueeTrack');
+  function renderQuotes() {
+    return testimonials.map(t => `
+      <div class="quote-card pop">
+        <div class="quote-badge">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="width:18px;height:18px;"><path d="M9.5 6.5C6 8 4 11 4 14.5A4 4 0 0 0 8 18.5A3.5 3.5 0 0 0 11.5 15C11.5 12.8 9.7 11.5 8 11.5C8.3 9.8 9.6 8.3 11.5 7.5L9.5 6.5M18 6.5C14.5 8 12.5 11 12.5 14.5A4 4 0 0 0 16.5 18.5A3.5 3.5 0 0 0 20 15C20 12.8 18.2 11.5 16.5 11.5C16.8 9.8 18.1 8.3 20 7.5L18 6.5"/></svg>
+        </div>
+        <p>"${t.quote}"</p>
+        <div class="quote-who">
+          <div class="quote-avatar" style="background:${t.bg};">${t.initials}</div>
+          <div>
+            <div class="quote-name">${t.name}</div>
+            <div class="quote-role">${t.role}</div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+  track.innerHTML = renderQuotes() + renderQuotes();
+
+  // page router
+  const pages = document.querySelectorAll('.page');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const validPages = new Set(Array.from(pages).map(p => p.dataset.page));
+  function showPage(name) {
+    if (!validPages.has(name)) name = 'home';
+    pages.forEach(p => p.classList.toggle('active', p.dataset.page === name));
+    const navTarget = name.startsWith('case-') ? 'work' : name;
+    navLinks.forEach(a => a.classList.toggle('current', a.dataset.nav === navTarget));
+    window.scrollTo(0, 0);
+  }
+  function routeFromHash() {
+    const hash = location.hash.replace('#', '') || 'home';
+    if (hash === 'home-content' || hash === 'home-contact') { showPage('home'); return; }
+    showPage(hash);
+  }
+  window.addEventListener('hashchange', routeFromHash);
+  routeFromHash();
+</script>
 
 </body>
 </html>
