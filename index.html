@@ -384,18 +384,29 @@
   @media (max-width: 500px) { .field-row { grid-template-columns: 1fr; } }
 
   /* ---------- footer ---------- */
-  .site-footer { padding: 56px 40px 40px; text-align: center; border-top: 1px solid var(--line); }
+  .site-footer { padding: 76px 40px 32px; border-top: 1px solid var(--line); }
+  .footer-grid { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr .8fr .8fr .9fr; gap: 40px; padding-bottom: 56px; }
   .footer-mark { font-family: "DM Serif Display", serif; font-size: 24px; margin-bottom: 8px; }
   .footer-mark .dot { color: var(--clay); }
-  .footer-tag { color: var(--faint); font-size: 10px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 26px; }
-  .footer-social { display: flex; justify-content: center; gap: 12px; margin-bottom: 26px; }
+  .footer-tag { color: var(--faint); font-size: 10px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 22px; }
+  .footer-social { display: flex; gap: 10px; }
   .footer-social a {
-    width: 38px; height: 38px; border-radius: 10px; border: 1px solid var(--line); background: var(--paper);
+    width: 36px; height: 36px; border-radius: 10px; border: 1px solid var(--line); background: var(--paper);
     display: flex; align-items: center; justify-content: center; font-size: 16px; color: var(--muted);
     transition: transform .15s ease, background .15s ease, color .15s ease;
   }
   .footer-social a:hover { transform: translateY(-3px); background: var(--sand); color: var(--ink); }
+  .footer-col-title { font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--faint); margin-bottom: 16px; }
+  .footer-col { display: flex; flex-direction: column; gap: 2px; }
+  .footer-col a { font-size: 14px; color: var(--muted); padding: 5px 0; }
+  .footer-col a:hover { color: var(--ink); }
+  .footer-bottom {
+    max-width: 1040px; margin: 0 auto; padding-top: 22px; border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  }
   .footer-legal { font-size: 10px; color: var(--faint); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
+  .footer-madeby { font-size: 10px; color: var(--faint); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
+  @media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 </style>
 </head>
 <body>
@@ -448,6 +459,7 @@
         <span>AnjouHealth</span>
         <span>Women &amp; Children Centre</span>
         <span style="font-style:italic;">Wunderfolks</span>
+        <span>Jarrons &amp; Co</span>
         <span style="font-family:'DM Serif Display',serif; font-style:italic;">Two Hungry Humans</span>
       </div>
     </div>
@@ -777,7 +789,7 @@
             <div class="case-tag">Physio &amp; Sole Clinic</div>
             <h3>Making medical marketing feel <em style="font-style:italic;">human.</em></h3>
             <p>SEO and content strategy for a Singapore physiotherapy and podiatry clinic.</p>
-            <span class="case-status">Full write-up in progress</span>
+            <span class="case-status">Ongoing since 2024</span>
           </article>
         </a>
         <a href="#case-anjou" class="case-card-link">
@@ -786,7 +798,7 @@
             <div class="case-tag">AnjouHealth</div>
             <h3>A confident, minimal <em style="font-style:italic;">wellness</em> vibe.</h3>
             <p>Organic visibility strategy for a sister brand to Physio &amp; Sole.</p>
-            <span class="case-status">Full write-up in progress</span>
+            <span class="case-status">Ongoing</span>
           </article>
         </a>
         <a href="#case-wcc" class="case-card-link">
@@ -795,7 +807,25 @@
             <div class="case-tag">Women &amp; Children Centre</div>
             <h3>Structured content for a <em style="font-style:italic;">sensitive</em> subject.</h3>
             <p>Search-intent-led content planning to grow organic presence.</p>
-            <span class="case-status">Full write-up in progress</span>
+            <span class="case-status">Ongoing</span>
+          </article>
+        </a>
+        <a href="#case-wunderfolks" class="case-card-link">
+          <article class="case-card pop reveal">
+            <div class="case-media-sm"><img src="assets/wunderfolks-web.jpg" alt="Wunderfolks Tampines outlet campaign"></div>
+            <div class="case-tag">Wunderfolks</div>
+            <h3>Turning a shop opening into a <em style="font-style:italic;">social</em> moment.</h3>
+            <p>Content strategy and design for the Tampines outlet launch.</p>
+            <span class="case-status">2022 — 2023</span>
+          </article>
+        </a>
+        <a href="#case-jarrons" class="case-card-link">
+          <article class="case-card pop reveal">
+            <div class="case-media-sm"><img src="assets/jarrons-web.jpg" alt="Jarrons & Co warehouse sale campaign post"></div>
+            <div class="case-tag">Jarrons &amp; Co</div>
+            <h3>A warehouse sale that <em style="font-style:italic;">sold itself.</em></h3>
+            <p>Campaign strategy and organic growth across Instagram and Xiaohongshu.</p>
+            <span class="case-status">221 followers gained, +325%</span>
           </article>
         </a>
       </div>
@@ -1047,6 +1077,108 @@
       <div class="case-next">
         <div>
           <div class="case-next-label">Next case study</div>
+          <div class="case-next-title">Wunderfolks</div>
+        </div>
+        <a href="#case-wunderfolks" class="case-next-link" aria-label="View Wunderfolks case study">
+          <span class="case-next-arrow"><svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= CASE DETAIL: WUNDERFOLKS ================= -->
+<main class="page" data-page="case-wunderfolks">
+  <section class="case-detail">
+    <div class="wrap">
+      <a href="#work" class="back-link"><svg class="icon" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>Back to work</a>
+      <div class="case-detail-hero reveal"><img src="assets/wunderfolks-web.jpg" alt="Wunderfolks Tampines outlet, website and Instagram mockups"></div>
+      <div class="case-meta-row">
+        <span class="case-tag" style="margin-bottom:0;">Case Study · Wunderfolks</span>
+        <span class="case-status-pill">2022 — 2023</span>
+      </div>
+      <h1>Turning a shop opening into a social moment.</h1>
+      <div class="case-detail-layout">
+        <div>
+          <div class="case-detail-body reveal">
+            <p>For Wunderfolks' Tampines outlet opening, my role went beyond just posting on social media. I planned and executed a full content strategy aimed at building anticipation before the doors even opened — brainstorming ideas, designing graphics and videos, scheduling for optimal reach, and tracking how the audience responded.</p>
+            <p>I collaborated with food bloggers and local influencers to extend reach and credibility, and ran a giveaway campaign designed to drive real engagement: following, liking, sharing to a story, and tagging friends in the comments — each action compounding the post's visibility.</p>
+            <p>I also designed the flyers and promotional materials distributed at the event to drive foot traffic, and produced short videos giving followers a first look at the new space, the coffee, and the pastries, ahead of opening day.</p>
+            <p>A consistent visual theme carried across every post, reinforcing brand identity and making the shop instantly recognisable across platforms — from the teasers through to opening day itself.</p>
+          </div>
+        </div>
+        <aside class="case-sidebar reveal">
+          <div class="case-sidebar-block" style="border-top:none; padding-top:0;">
+            <div class="case-sidebar-label">Role</div>
+            <div class="case-sidebar-value">Marketing &amp; Graphic Designer</div>
+          </div>
+          <div class="case-sidebar-block">
+            <div class="case-sidebar-label">What I did</div>
+            <div class="case-role-tags">
+              <span class="case-role-tag">Content Strategy</span>
+              <span class="case-role-tag">Influencer Collabs</span>
+              <span class="case-role-tag">Giveaway Campaigns</span>
+              <span class="case-role-tag">Flyer Design</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+      <div class="case-next">
+        <div>
+          <div class="case-next-label">Next case study</div>
+          <div class="case-next-title">Jarrons &amp; Co</div>
+        </div>
+        <a href="#case-jarrons" class="case-next-link" aria-label="View Jarrons & Co case study">
+          <span class="case-next-arrow"><svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= CASE DETAIL: JARRONS & CO ================= -->
+<main class="page" data-page="case-jarrons">
+  <section class="case-detail">
+    <div class="wrap">
+      <a href="#work" class="back-link"><svg class="icon" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>Back to work</a>
+      <div class="case-detail-hero reveal"><img src="assets/jarrons-web.jpg" alt="Jarrons & Co x Baa Baa Sheepz warehouse sale teaser post"></div>
+      <div class="case-meta-row">
+        <span class="case-tag" style="margin-bottom:0;">Case Study · Jarrons &amp; Co</span>
+        <span class="case-status-pill">Jan 2024</span>
+      </div>
+      <h1>A warehouse sale that sold itself.</h1>
+      <div class="case-detail-layout">
+        <div>
+          <div class="case-detail-body reveal">
+            <p>I led the marketing for a collaborative warehouse sale between Jarrons &amp; Co and Baa Baa Sheepz, a local brand well known for its baby products. The approach centred on a guessing game: teaser posts featuring the Baa Baa Sheepz mascot invited followers to guess the collaboration partner before it was revealed, alongside sneak peeks of sale items and their discounted prices.</p>
+            <p>To convert curiosity into reach, I ran a giveaway built on compounding actions — following both brands' accounts, sharing the post to a story, and commenting a set phrase while tagging friends — each step extending the campaign to a new audience. Location tags, event details, and a set of relevant hashtags rounded out the push to be discoverable to people who hadn't heard of either brand yet.</p>
+            <p>Separately, I also built Jarrons &amp; Co's presence on Xiaohongshu (RED/小红书) from scratch — planning content, posting on a consistent schedule, and engaging directly with comments and messages to grow a genuinely engaged following without paid ads.</p>
+          </div>
+          <div class="stat-row reveal" style="max-width:600px; margin-top:36px;">
+            <div class="stat"><div class="stat-label">Followers Gained</div><div class="stat-value">221 (+325%)</div></div>
+            <div class="stat"><div class="stat-label">Engagement</div><div class="stat-value">1.9K (+342.7%)</div></div>
+            <div class="stat"><div class="stat-label">Reach</div><div class="stat-value">15.7K (+8.5%)</div></div>
+          </div>
+        </div>
+        <aside class="case-sidebar reveal">
+          <div class="case-sidebar-block" style="border-top:none; padding-top:0;">
+            <div class="case-sidebar-label">Role</div>
+            <div class="case-sidebar-value">Freelance Social Media Marketer</div>
+          </div>
+          <div class="case-sidebar-block">
+            <div class="case-sidebar-label">What I did</div>
+            <div class="case-role-tags">
+              <span class="case-role-tag">Campaign Strategy</span>
+              <span class="case-role-tag">Giveaway Mechanics</span>
+              <span class="case-role-tag">Xiaohongshu Growth</span>
+              <span class="case-role-tag">Community Engagement</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+      <div class="case-next">
+        <div>
+          <div class="case-next-label">Next case study</div>
           <div class="case-next-title">Two Hungry Humans</div>
         </div>
         <a href="#case-thh" class="case-next-link" aria-label="View Two Hungry Humans case study">
@@ -1058,17 +1190,46 @@
 </main>
 
 <footer class="site-footer">
-  <div class="footer-mark">Celest<span class="dot">.</span></div>
-  <p class="footer-tag">Marketing with heart &amp; grit</p>
-  <div class="footer-social">
-    <a href="https://instagram.com/two.hungryhumans" target="_blank" rel="noopener" aria-label="Instagram">
-      <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-    </a>
-    <a href="https://www.linkedin.com/in/celestleesl" target="_blank" rel="noopener" aria-label="LinkedIn">
-      <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h4v16H4zM4 4a2 2 0 1 0 4 0a2 2 0 1 0-4 0M11 9h4v11h-4zM11 13c0-2 2-4 4-4c2.5 0 4 1.5 4 4v7h-4v-6c0-1-.5-2-1.5-2S12 12 11 13Z"/></svg>
-    </a>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-mark">Celest<span class="dot">.</span></div>
+      <p class="footer-tag">Marketing with heart &amp; grit</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/two.hungryhumans" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/celestleesl" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h4v16H4zM4 4a2 2 0 1 0 4 0a2 2 0 1 0-4 0M11 9h4v11h-4zM11 13c0-2 2-4 4-4c2.5 0 4 1.5 4 4v7h-4v-6c0-1-.5-2-1.5-2S12 12 11 13Z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Site</div>
+      <a href="#home">Home</a>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Case Studies</div>
+      <a href="#case-thh">Two Hungry Humans</a>
+      <a href="#case-physio">Physio &amp; Sole</a>
+      <a href="#case-anjou">AnjouHealth</a>
+      <a href="#case-wcc">Women &amp; Children Centre</a>
+      <a href="#case-wunderfolks">Wunderfolks</a>
+      <a href="#case-jarrons">Jarrons &amp; Co</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Get in touch</div>
+      <a href="mailto:celestleesl@gmail.com">celestleesl@gmail.com</a>
+      <a href="https://www.linkedin.com/in/celestleesl" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="assets/Celest-Lee-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </div>
   </div>
-  <p class="footer-legal">© 2026 Celest Lee — All Rights Reserved</p>
+  <div class="footer-bottom">
+    <p class="footer-legal">© 2026 Celest Lee — All Rights Reserved</p>
+    <p class="footer-madeby">Built in Singapore</p>
+  </div>
 </footer>
 
 <script>
