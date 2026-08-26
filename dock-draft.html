@@ -239,6 +239,13 @@
   .case-detail-layout { display: grid; grid-template-columns: 1fr 260px; gap: 64px; align-items: start; margin-top: 36px; }
   .case-detail-body { max-width: 68ch; color: var(--muted); font-size: 17px; line-height: 1.7; }
   .case-detail-body p { margin: 0 0 18px; }
+  .case-detail-body ul { margin: 0 0 18px; padding-left: 22px; }
+  .case-detail-body li { margin-bottom: 10px; }
+  .case-section-title { font-family: "Fraunces", serif; font-weight: 600; color: var(--ink); font-size: clamp(19px, 2.2vw, 23px); margin: 42px 0 14px; }
+  .case-section-title:first-child { margin-top: 0; }
+  .case-proof-box { background: var(--card); border-radius: 20px; padding: 28px 28px 6px; margin: 8px 0 32px; }
+  .case-proof-box .case-section-title { margin-top: 0; }
+  .case-proof-box .stat { background: var(--paper); }
   .case-sidebar { display: flex; flex-direction: column; gap: 26px; position: sticky; top: 100px; }
   .case-sidebar-block { border-top: 1px solid var(--line); padding-top: 16px; }
   .case-sidebar-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--faint); margin-bottom: 12px; }
@@ -489,12 +496,12 @@
           <div class="case-feature-grid">
             <div>
               <span class="case-tag">Case Study · @two.hungryhumans</span>
-              <h3>Building a community of <em style="color:var(--clay); font-style:italic;">hungry</em> followers.</h3>
-              <p>Co-founded and run this Singapore food review page alongside my partner. Content strategy, filming, editing, captions, and social growth, entirely self-produced with no paid sponsorships.</p>
+              <h3>Building a following <em style="color:var(--clay); font-style:italic;">from zero.</em></h3>
+              <p>Co-founded and run this Singapore food review page alongside my partner. Content strategy, filming, editing, captions, social growth, and a bit of targeted paid amplification, entirely self-produced.</p>
               <div class="stat-row">
-                <div class="stat"><div class="stat-label">Followers</div><div class="stat-value">417</div></div>
-                <div class="stat"><div class="stat-label">Views (30d)</div><div class="stat-value">16,533</div></div>
-                <div class="stat"><div class="stat-label">Accounts engaged</div><div class="stat-value">223</div></div>
+                <div class="stat"><div class="stat-label">Views (90d)</div><div class="stat-value">61,183</div></div>
+                <div class="stat"><div class="stat-label">Unique Viewers</div><div class="stat-value">24,902</div></div>
+                <div class="stat"><div class="stat-label">Followers</div><div class="stat-value">422</div></div>
               </div>
               <a href="#case-thh" class="btn btn-ink">Read the story
                 <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -790,9 +797,9 @@
           <article class="case-card pop reveal">
             <div class="case-media-sm"><img src="assets/thh-logo-web.jpg" alt="Two Hungry Humans logo"></div>
             <div class="case-tag">Two Hungry Humans</div>
-            <h3>Building a community of <em style="font-style:italic;">hungry</em> followers.</h3>
+            <h3>Building a following <em style="font-style:italic;">from zero.</em></h3>
             <p>Content, filming, and social growth for a self-produced Singapore food review page.</p>
-            <span class="case-status">417 followers and growing</span>
+            <span class="case-status">61.2K views in 90 days</span>
           </article>
         </a>
         <a href="#case-physio" class="case-card-link">
@@ -899,17 +906,59 @@
         <span class="case-tag" style="margin-bottom:0;">Case Study · @two.hungryhumans</span>
         <span class="case-status-pill live"><span class="dot"></span>Ongoing since 2024</span>
       </div>
-      <h1>Building a community of hungry followers.</h1>
+      <h1>Building a following from zero.</h1>
       <div class="case-detail-layout">
         <div>
           <div class="case-detail-body reveal">
-            <p>Co-founded and run this Singapore food review page alongside my partner, covering Singapore and Johor Bahru. I handle end-to-end content strategy: filming, editing, caption writing, and social growth across Instagram and TikTok.</p>
-            <p>Entirely self-produced with no paid sponsorships. The page has grown to 417 followers, with 16,533 views and 223 accounts engaged in the last 30 days alone.</p>
-          </div>
-          <div class="stat-row reveal" style="max-width:600px; margin-top:36px;">
-            <div class="stat"><div class="stat-label">Followers</div><div class="stat-value">417</div></div>
-            <div class="stat"><div class="stat-label">Views (30d)</div><div class="stat-value">16,533</div></div>
-            <div class="stat"><div class="stat-label">Accounts engaged</div><div class="stat-value">223</div></div>
+            <div class="case-section-title">The starting point</div>
+            <p>I started Two Hungry Humans as a passion project — a food review page covering Singapore and Johor Bahru. No brief, no fixed budget, just me figuring it out. It ended up becoming a real testbed for everything I know about marketing: content strategy, platform growth, community building, and eventually a bit of paid amplification, all without the safety net of an existing audience or client budget behind me.</p>
+
+            <div class="case-section-title">The challenge</div>
+            <p>Two things made early growth genuinely hard. First, figuring out what content actually resonated — the right format, hook, pacing. Second, building a system so I could keep producing content consistently without burning out from doing everything solo: filming, editing, captioning. Honestly, the ideas weren't the bottleneck. Getting from "good idea" to "posted" reliably, week after week, was.</p>
+
+            <div class="case-section-title">What I did</div>
+            <ul>
+              <li>Built a repeatable content workflow (batching filming, standardizing my editing style, templated caption structure) so I wasn't reinventing the process every time.</li>
+              <li>Focused tightly on a specific niche — Singapore and JB food specifically — instead of trying to be a generic food page.</li>
+              <li>Iterated on format based on what actually performed, refining hooks and pacing across Instagram and TikTok.</li>
+              <li>Kept organic content as the core strategy, but tested a small paid boost on one post to see what reach potential it could unlock.</li>
+              <li>Owned the entire pipeline myself: strategy, filming, editing, copywriting, posting, replying to comments, and eventually managing a small ad budget.</li>
+            </ul>
+
+            <div class="case-section-title">Results (last 90 days)</div>
+            <p>In roughly 3 months I hit 61,183 total views and reached 24,902 unique viewers — 80.5% of whom weren't even following the page yet, which tells me the content itself was doing the work of pulling in new people, not just re-serving existing followers. That translated into 2,296 interactions, 870 accounts engaged, and 2,495 profile visits. I've grown to 422 followers across 25 posts total.</p>
+            <div class="stat-row reveal">
+              <div class="stat"><div class="stat-label">Views (90d)</div><div class="stat-value">61,183</div></div>
+              <div class="stat"><div class="stat-label">Unique Viewers</div><div class="stat-value">24,902</div></div>
+              <div class="stat"><div class="stat-label">Followers</div><div class="stat-value">422</div></div>
+              <div class="stat"><div class="stat-label">Interactions</div><div class="stat-value">2,296</div></div>
+              <div class="stat"><div class="stat-label">Accounts Engaged</div><div class="stat-value">870</div></div>
+              <div class="stat"><div class="stat-label">Profile Visits</div><div class="stat-value">2,495</div></div>
+            </div>
+            <p>Reels and Stories are carrying views almost evenly (46.8% and 44.4%), but static posts punch above their weight on interactions — 53.3% of all interactions come from just 8.8% of the views — which tells me people engage differently depending on format, something I want to lean into more deliberately.</p>
+            <p>My top-performing post organically was a June 23rd piece that hit 15.6K views and 269 interactions on its own, no paid support. Four of my next best posts (13–9.3K, 5.9K, 2.9K, 2K views) came from a mix of formats, which is a good sign the page isn't a one-hit wonder.</p>
+
+            <div class="case-proof-box reveal">
+              <div class="case-section-title">Proof point: testing paid amplification</div>
+              <p style="color:var(--muted); margin-bottom:20px;">Separately, I ran one small paid test on my "I started a food blog: send help" reel — SGD 17.92 over 6 days. It drove 12,571 of that post's 16,027 total views, 8,587 reach, and 450 profile visits, at just $0.04 per profile visit. It also surfaced a useful audience insight I didn't expect: 95.5% of the paid reach was in Johor Bahru versus only 4.5% in Singapore, which is now shaping how I think about targeting JB content going forward.</p>
+              <div class="stat-row">
+                <div class="stat"><div class="stat-label">Ad Spend</div><div class="stat-value">SGD 17.92</div></div>
+                <div class="stat"><div class="stat-label">Views from Paid</div><div class="stat-value">12,571</div></div>
+                <div class="stat"><div class="stat-label">Reach</div><div class="stat-value">8,587</div></div>
+                <div class="stat"><div class="stat-label">Profile Visits</div><div class="stat-value">450</div></div>
+                <div class="stat"><div class="stat-label">Cost / Profile Visit</div><div class="stat-value">$0.04</div></div>
+                <div class="stat"><div class="stat-label">Audience in JB</div><div class="stat-value">95.5%</div></div>
+              </div>
+            </div>
+
+            <p>I'm also now starting to field early media drop and brand collaboration offers as a direct result of the page's traction (details to come once those are confirmed).</p>
+
+            <div class="case-section-title">What I'd do differently</div>
+            <p>A few things I want to tighten up going forward. My posting cadence still isn't as consistent as I'd like, so building a stricter content calendar is next on my list. I've also been going a lot on gut feel about what works — I want to get more rigorous about tracking performance data so decisions are backed by numbers, not just instinct. I'm also aware I lean heavily on one content format, so I want to test more variety (carousels, stories, behind-the-scenes) instead of defaulting to reels.</p>
+            <p>On a personal note, I'm working on getting more comfortable being on camera. It's something I actively want to do more of, and I think leaning into it will unlock a level of content — and connection with the audience — that scripted or edited posts can't fully replace.</p>
+
+            <div class="case-section-title">Why it matters</div>
+            <p>This project shows I can grow a brand from near zero to over 60K views and inbound brand interest in about 3 months, using organic-first strategy, niche positioning, and small, targeted paid tests to actually learn something about the audience rather than just buy numbers. It's the same discipline — content strategy, performance analysis, efficient spend — that I bring to client work at Physio &amp; Sole, AnjouHealth, and beyond.</p>
           </div>
           <div style="margin-top:36px;">
             <a href="https://instagram.com/two.hungryhumans" target="_blank" rel="noopener" class="btn btn-ink">Visit @two.hungryhumans
@@ -929,6 +978,7 @@
               <span class="case-role-tag">Filming &amp; Editing</span>
               <span class="case-role-tag">Caption Writing</span>
               <span class="case-role-tag">Social Growth</span>
+              <span class="case-role-tag">Paid Ads</span>
             </div>
           </div>
           <div class="case-sidebar-block">
