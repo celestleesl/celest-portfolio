@@ -374,7 +374,9 @@
   }
   .quote-card p { font-family: "DM Serif Display", serif; font-style: italic; font-size: 16.5px; line-height: 1.5; margin: 8px 0 24px; }
   .quote-who { display: flex; align-items: center; gap: 14px; }
-  .quote-avatar { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; background: var(--sand); flex: none; }
+  .quote-avatar { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; background: var(--sand); flex: none; overflow: hidden; position: relative; }
+  .quote-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .quote-avatar span { width: 100%; height: 100%; align-items: center; justify-content: center; }
   .quote-name { font-weight: 700; font-size: 14.5px; }
   .quote-role { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--faint); }
 
@@ -1501,13 +1503,13 @@
 
   // testimonials marquee (build from data, duplicated for seamless loop)
   const testimonials = [
-    { quote: "Her expertise in social media graphic design and copywriting has significantly contributed to our marketing success... a versatile asset to any marketing team.", name: "Zuffean Zamri", role: "Managed Celest directly", initials: "ZZ", bg: "var(--sand)" },
-    { quote: "I highly recommend Celest... she has an eye for details and does it quickly too! The design sense is awesome, could meet my expectations!", name: "Polly Wang", role: "Was Celest's client", initials: "PW", bg: "var(--sage)" },
-    { quote: "She is truly the creative spark that every marketing department needs... Celest is a rare 'all-in-one' creative talent.", name: "Jia Yan Chong", role: "Senior colleague", initials: "JC", bg: "var(--sand)" },
-    { quote: "Celest is an exceptional student with a remarkable talent for design... as her mentor over the past years, I am incredibly proud to witness her continuous growth and flourishing skills. I highly recommend Celest for any design-related endeavors.", name: "Wilson Du", role: "Was Celest's mentor", initials: "WD", bg: "var(--sage)" },
-    { quote: "Celest is one of the most talented designers I have partnered with... she's a reliable team player and a joy to work with. Celest would undeniably be an asset to any company or employer.", name: "Bryan Tan", role: "Worked with Celest", initials: "BT", bg: "var(--sand)" },
-    { quote: "Celest is an enthusiastic student, always eager to learn. She is committed to her tasks and keen to explore new innovative ideas. Her dedication and passion will continue to empower her growth in her marketing career.", name: "Ing Hui Chen", role: "Was Celest's teacher", initials: "IC", bg: "var(--sage)" },
-    { quote: "She is a highly intelligent individual that is super original and creative and knows how to push one's capability to the furthest... Celest brings in laughter and joy to everyone in the organisation and will never fail to be a ray of sunshine.", name: "Huang Yihao", role: "Celest's intern at Physio & Sole", initials: "HY", bg: "var(--sand)" },
+    { quote: "Her expertise in social media graphic design and copywriting has significantly contributed to our marketing success... a versatile asset to any marketing team.", name: "Zuffean Zamri", role: "Managed Celest directly", initials: "ZZ", bg: "var(--sand)", photo: "assets/zuffean-zamri-web.jpg" },
+    { quote: "I highly recommend Celest... she has an eye for details and does it quickly too! The design sense is awesome, could meet my expectations!", name: "Polly Wang", role: "Was Celest's client", initials: "PW", bg: "var(--sage)", photo: "assets/polly-wang-web.jpg" },
+    { quote: "She is truly the creative spark that every marketing department needs... Celest is a rare 'all-in-one' creative talent.", name: "Jia Yan Chong", role: "Senior colleague", initials: "JC", bg: "var(--sand)", photo: "assets/jia-yan-chong-web.jpg" },
+    { quote: "Celest is an exceptional student with a remarkable talent for design... as her mentor over the past years, I am incredibly proud to witness her continuous growth and flourishing skills. I highly recommend Celest for any design-related endeavors.", name: "Wilson Du", role: "Was Celest's mentor", initials: "WD", bg: "var(--sage)", photo: "assets/wilson-du-web.jpg" },
+    { quote: "Celest is one of the most talented designers I have partnered with... she's a reliable team player and a joy to work with. Celest would undeniably be an asset to any company or employer.", name: "Bryan Tan", role: "Worked with Celest", initials: "BT", bg: "var(--sand)", photo: "assets/bryan-tan-web.jpg" },
+    { quote: "Celest is an enthusiastic student, always eager to learn. She is committed to her tasks and keen to explore new innovative ideas. Her dedication and passion will continue to empower her growth in her marketing career.", name: "Ing Hui Chen", role: "Was Celest's teacher", initials: "IC", bg: "var(--sage)", photo: "assets/ing-hui-chen-web.jpg" },
+    { quote: "She is a highly intelligent individual that is super original and creative and knows how to push one's capability to the furthest... Celest brings in laughter and joy to everyone in the organisation and will never fail to be a ray of sunshine.", name: "Huang Yihao", role: "Celest's intern at Physio & Sole", initials: "HY", bg: "var(--sand)", photo: "assets/huang-yihao-web.jpeg" },
   ];
   const track = document.getElementById('marqueeTrack');
   function renderQuotes() {
@@ -1518,7 +1520,7 @@
         </div>
         <p>"${t.quote}"</p>
         <div class="quote-who">
-          <div class="quote-avatar" style="background:${t.bg};">${t.initials}</div>
+          <div class="quote-avatar" style="background:${t.bg};">${t.photo ? `<img src="${t.photo}" alt="${t.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span style="display:none;">${t.initials}</span>` : t.initials}</div>
           <div>
             <div class="quote-name">${t.name}</div>
             <div class="quote-role">${t.role}</div>
