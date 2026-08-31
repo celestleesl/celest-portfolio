@@ -458,29 +458,39 @@
   @media (max-width: 500px) { .field-row { grid-template-columns: 1fr; } }
 
   /* ---------- footer ---------- */
-  .site-footer { padding: 76px 40px 32px; border-top: 1px solid var(--line); }
-  .footer-grid { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr .8fr .8fr .9fr; gap: 40px; padding-bottom: 56px; }
-  .footer-mark { font-family: "DM Serif Display", serif; font-size: 24px; margin-bottom: 8px; }
-  .footer-mark .dot { color: var(--clay); }
-  .footer-tag { color: var(--faint); font-size: 10px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 22px; }
-  .footer-social { display: flex; gap: 10px; }
-  .footer-social a {
-    width: 36px; height: 36px; border-radius: 10px; border: 1px solid var(--line); background: var(--paper);
-    display: flex; align-items: center; justify-content: center; font-size: 16px; color: var(--muted);
-    transition: transform .15s ease, background .15s ease, color .15s ease;
+  .site-footer { padding: 60px 40px 40px; background: var(--cream); }
+  .footer-card-wrap { max-width: 1120px; margin: 0 auto; position: relative; }
+  .footer-tape {
+    position: absolute; width: 70px; height: 26px; background: var(--ink); border-radius: 4px;
+    box-shadow: 0 6px 14px -4px rgba(0,0,0,.3); z-index: 2;
   }
-  .footer-social a:hover { transform: translateY(-3px); background: var(--sand); color: var(--ink); }
-  .footer-col-title { font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--faint); margin-bottom: 16px; }
+  .footer-tape.tl { top: -12px; left: 36px; transform: rotate(-32deg); }
+  .footer-tape.tr { top: -12px; right: 36px; transform: rotate(32deg); }
+  .footer-card {
+    background: var(--paper); border-radius: 32px; padding: 50px 44px 36px; box-shadow: var(--shadow-soft);
+    position: relative; z-index: 1;
+  }
+  .footer-grid { display: grid; grid-template-columns: 1.3fr .8fr .8fr .9fr; gap: 40px; }
+  .footer-mark { font-family: "DM Serif Display", serif; font-size: 24px; margin-bottom: 10px; }
+  .footer-mark .dot { color: var(--clay); }
+  .footer-tag { color: var(--muted); font-size: 13.5px; line-height: 1.5; max-width: 26ch; margin-bottom: 0; }
+  .footer-col-title { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--faint); margin-bottom: 16px; }
+  .footer-soon { font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; color: var(--faint); background: var(--card); border-radius: 999px; padding: 2px 8px; }
   .footer-col { display: flex; flex-direction: column; gap: 2px; }
-  .footer-col a { font-size: 14px; color: var(--muted); padding: 5px 0; }
+  .footer-col a { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); padding: 5px 0; }
   .footer-col a:hover { color: var(--ink); }
   .footer-bottom {
-    max-width: 1040px; margin: 0 auto; padding-top: 22px; border-top: 1px solid var(--line);
-    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    max-width: 1120px; margin: 20px auto 0; padding: 0 4px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;
   }
-  .footer-legal { font-size: 10px; color: var(--faint); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
-  .footer-madeby { font-size: 10px; color: var(--faint); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
-  @media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  .footer-legal-row { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+  .footer-legal { font-size: 13px; color: var(--faint); }
+  .footer-legal-row a { font-size: 13px; color: var(--faint); }
+  .footer-legal-row a:hover { color: var(--ink); }
+  .footer-social { display: flex; gap: 14px; }
+  .footer-social a { color: var(--ink); display: flex; align-items: center; justify-content: center; }
+  .footer-social a svg { width: 18px; height: 18px; }
+  @media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr 1fr; row-gap: 30px; } .footer-card { padding: 40px 26px 30px; } }
 </style>
 </head>
 <body>
@@ -1590,44 +1600,53 @@
 </main>
 
 <footer class="site-footer">
-  <div class="footer-grid">
-    <div>
-      <div class="footer-mark">Celest<span class="dot">.</span></div>
-      <p class="footer-tag">Marketing with heart &amp; grit</p>
-      <div class="footer-social">
-        <a href="https://instagram.com/two.hungryhumans" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/celestleesl" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h4v16H4zM4 4a2 2 0 1 0 4 0a2 2 0 1 0-4 0M11 9h4v11h-4zM11 13c0-2 2-4 4-4c2.5 0 4 1.5 4 4v7h-4v-6c0-1-.5-2-1.5-2S12 12 11 13Z"/></svg>
-        </a>
+  <div class="footer-card-wrap">
+    <span class="footer-tape tl"></span>
+    <span class="footer-tape tr"></span>
+    <div class="footer-card">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-mark">Celest<span class="dot">.</span></div>
+          <p class="footer-tag">Marketing strategist and content creator based in Singapore, helping brands find their voice.</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Site</div>
+          <a href="#home">Home</a>
+          <a href="#work">Work</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Case Studies</div>
+          <a href="#case-thh">Two Hungry Humans</a>
+          <a href="#case-physio">Physio &amp; Sole</a>
+          <a href="#case-anjou">AnjouHealth</a>
+          <a href="#case-wunderfolks">Wunderfolks</a>
+          <a href="#case-jarrons">Jarrons &amp; Co</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Get in Touch</div>
+          <a href="mailto:celestleesl@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/celestleesl" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://instagram.com/two.hungryhumans" target="_blank" rel="noopener">Instagram</a>
+          <a href="assets/Celest-Lee-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+        </div>
       </div>
-    </div>
-    <div class="footer-col">
-      <div class="footer-col-title">Site</div>
-      <a href="#home">Home</a>
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="footer-col">
-      <div class="footer-col-title">Case Studies</div>
-      <a href="#case-thh">Two Hungry Humans</a>
-      <a href="#case-physio">Physio &amp; Sole</a>
-      <a href="#case-anjou">AnjouHealth</a>
-      <a href="#case-wunderfolks">Wunderfolks</a>
-      <a href="#case-jarrons">Jarrons &amp; Co</a>
-    </div>
-    <div class="footer-col">
-      <div class="footer-col-title">Get in touch</div>
-      <a href="mailto:celestleesl@gmail.com">celestleesl@gmail.com</a>
-      <a href="https://www.linkedin.com/in/celestleesl" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="assets/Celest-Lee-Resume.pdf" target="_blank" rel="noopener">Resume</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="footer-legal">© 2026 Celest Lee. All Rights Reserved</p>
-    <p class="footer-madeby">Built in Singapore</p>
+    <div class="footer-legal-row">
+      <p class="footer-legal">© 2026 Celest Lee. All Rights Reserved.</p>
+      <a href="mailto:celestleesl@gmail.com">celestleesl@gmail.com</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/in/celestleesl" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M4 4h4v16H4zM4 4a2 2 0 1 0 4 0a2 2 0 1 0-4 0M11 9h4v11h-4zM11 13c0-2 2-4 4-4c2.5 0 4 1.5 4 4v7h-4v-6c0-1-.5-2-1.5-2S12 12 11 13Z"/></svg>
+      </a>
+      <a href="https://instagram.com/two.hungryhumans" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
   </div>
 </footer>
 
