@@ -403,34 +403,25 @@
   .about-photo img { width: 100%; height: 100%; object-fit: cover; }
   @media (max-width: 620px) { .interests-grid { grid-template-columns: 1fr; max-width: 300px; } }
 
-  /* ---------- typewriter testimonial ---------- */
-  .quotes { padding-top: 100px; padding-bottom: 100px; background: var(--cream); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .tt-wrap { max-width: 860px; margin: 0 auto; display: grid; grid-template-columns: 220px 1fr; gap: 50px; align-items: center; }
-  .tt-photo-stack { position: relative; width: 220px; height: 220px; }
-  .tt-photo {
-    position: absolute; inset: 0; border-radius: 24px; overflow: hidden; border: 1px solid var(--line);
-    box-shadow: var(--shadow-soft-hover); opacity: 0; transition: opacity .5s ease;
+  /* ---------- testimonials marquee ---------- */
+  .quotes { padding-top: 90px; padding-bottom: 90px; background: var(--cream); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .marquee { overflow-x: hidden; overflow-y: visible; padding-top: 24px; }
+  .marquee-track { display: flex; gap: 24px; width: max-content; animation: marquee-scroll 34s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  @keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .quote-card { border-radius: 24px; padding: 32px; position: relative; width: 370px; flex: none; }
+  .quote-badge {
+    position: absolute; top: -18px; left: -10px; width: 44px; height: 44px; border-radius: 50%;
+    background: var(--clay); border: 1px solid var(--line); color: var(--paper); display: flex; align-items: center; justify-content: center;
+    transform: rotate(-8deg); box-shadow: var(--shadow-soft);
   }
-  .tt-photo.active { opacity: 1; }
-  .tt-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .tt-quote-badge {
-    position: absolute; top: -16px; left: -16px; width: 42px; height: 42px; border-radius: 50%; background: var(--clay);
-    color: var(--paper); display: flex; align-items: center; justify-content: center; transform: rotate(-8deg);
-    box-shadow: var(--shadow-soft); z-index: 2;
-  }
-  .tt-content { min-height: 190px; display: flex; flex-direction: column; justify-content: center; }
-  .tt-quote { font-family: "DM Serif Display", serif; font-style: italic; font-size: clamp(19px, 2.4vw, 25px); line-height: 1.5; color: var(--ink); }
-  .tt-cursor { display: inline-block; width: 2px; height: 1em; background: var(--clay); margin-left: 2px; vertical-align: -0.15em; animation: tt-blink 1s step-end infinite; }
-  @keyframes tt-blink { 50% { opacity: 0; } }
-  .tt-who { margin-top: 26px; display: flex; align-items: center; gap: 8px; opacity: 0; transition: opacity .3s ease; }
-  .tt-who.visible { opacity: 1; }
-  .tt-name { font-weight: 800; font-size: 14.5px; }
-  .tt-role { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--faint); }
-  .tt-dot-sep { width: 3px; height: 3px; border-radius: 50%; background: var(--faint); }
-  .tt-dots { display: flex; gap: 8px; margin-top: 30px; }
-  .tt-dot { width: 8px; height: 8px; border-radius: 999px; background: var(--line); border: none; padding: 0; cursor: pointer; transition: all .25s ease; }
-  .tt-dot.active { background: var(--ink); width: 24px; }
-  @media (max-width: 700px) { .tt-wrap { grid-template-columns: 1fr; justify-items: center; text-align: center; } .tt-who { justify-content: center; } .tt-dots { justify-content: center; } }
+  .quote-card p { font-family: "DM Serif Display", serif; font-style: italic; font-size: 16.5px; line-height: 1.5; margin: 8px 0 24px; }
+  .quote-who { display: flex; align-items: center; gap: 14px; }
+  .quote-avatar { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; background: var(--sand); flex: none; overflow: hidden; position: relative; }
+  .quote-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .quote-avatar span { width: 100%; height: 100%; align-items: center; justify-content: center; }
+  .quote-name { font-weight: 700; font-size: 14.5px; }
+  .quote-role { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--faint); }
 
   /* ---------- contact ---------- */
   .contact { padding-top: 100px; padding-bottom: 100px; }
@@ -666,20 +657,9 @@
         <div class="hand sec-eyebrow">Real love</div>
         <h2 class="sec-title">Kind Words</h2>
       </div>
-      <div class="tt-wrap reveal">
-        <div class="tt-photo-stack" id="ttPhotoStack"></div>
-        <div>
-          <div class="tt-content">
-            <p class="tt-quote" id="ttQuote"></p>
-          </div>
-          <div class="tt-who" id="ttWho">
-            <span class="tt-name" id="ttName"></span>
-            <span class="tt-dot-sep"></span>
-            <span class="tt-role" id="ttRole"></span>
-          </div>
-          <div class="tt-dots" id="ttDots"></div>
-        </div>
-      </div>
+    </div>
+    <div class="marquee">
+      <div class="marquee-track" id="marqueeTrack"></div>
     </div>
   </section>
 
@@ -1723,82 +1703,25 @@
     { quote: "Celest is an enthusiastic student, always eager to learn. She is committed to her tasks and keen to explore new innovative ideas. Her dedication and passion will continue to empower her growth in her marketing career.", name: "Ing Hui Chen", role: "Was Celest's teacher", initials: "IC", bg: "var(--sage)", photo: "assets/ing-hui-chen-web.jpg" },
     { quote: "She is a highly intelligent individual that is super original and creative and knows how to push one's capability to the furthest... Celest brings in laughter and joy to everyone in the organisation and will never fail to be a ray of sunshine.", name: "Huang Yihao", role: "Celest's intern at Physio & Sole", initials: "HY", bg: "var(--sand)", photo: "assets/huang-yihao-web.jpeg" },
   ];
-  // typewriter testimonial cycler
-  (function() {
-    const photoStack = document.getElementById('ttPhotoStack');
-    const quoteEl = document.getElementById('ttQuote');
-    const whoEl = document.getElementById('ttWho');
-    const nameEl = document.getElementById('ttName');
-    const roleEl = document.getElementById('ttRole');
-    const dotsEl = document.getElementById('ttDots');
-    if (!quoteEl) return;
-
-    photoStack.innerHTML = testimonials.map((t, i) => `
-      <div class="tt-photo${i === 0 ? ' active' : ''}" data-i="${i}">
-        <span class="tt-quote-badge"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="width:16px;height:16px;"><path d="M9.5 6.5C6 8 4 11 4 14.5A4 4 0 0 0 8 18.5A3.5 3.5 0 0 0 11.5 15C11.5 12.8 9.7 11.5 8 11.5C8.3 9.8 9.6 8.3 11.5 7.5L9.5 6.5M18 6.5C14.5 8 12.5 11 12.5 14.5A4 4 0 0 0 16.5 18.5A3.5 3.5 0 0 0 20 15C20 12.8 18.2 11.5 16.5 11.5C16.8 9.8 18.1 8.3 20 7.5L18 6.5"/></svg></span>
-        <img src="${t.photo}" alt="${t.name}" onerror="this.parentElement.style.background='${t.bg}';this.remove();">
+  const track = document.getElementById('marqueeTrack');
+  function renderQuotes() {
+    return testimonials.map(t => `
+      <div class="quote-card pop">
+        <div class="quote-badge">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="width:18px;height:18px;"><path d="M9.5 6.5C6 8 4 11 4 14.5A4 4 0 0 0 8 18.5A3.5 3.5 0 0 0 11.5 15C11.5 12.8 9.7 11.5 8 11.5C8.3 9.8 9.6 8.3 11.5 7.5L9.5 6.5M18 6.5C14.5 8 12.5 11 12.5 14.5A4 4 0 0 0 16.5 18.5A3.5 3.5 0 0 0 20 15C20 12.8 18.2 11.5 16.5 11.5C16.8 9.8 18.1 8.3 20 7.5L18 6.5"/></svg>
+        </div>
+        <p>"${t.quote}"</p>
+        <div class="quote-who">
+          <div class="quote-avatar" style="background:${t.bg};">${t.photo ? `<img src="${t.photo}" alt="${t.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span style="display:none;">${t.initials}</span>` : t.initials}</div>
+          <div>
+            <div class="quote-name">${t.name}</div>
+            <div class="quote-role">${t.role}</div>
+          </div>
+        </div>
       </div>
     `).join('');
-    dotsEl.innerHTML = testimonials.map((t, i) => `<button class="tt-dot${i === 0 ? ' active' : ''}" data-i="${i}" aria-label="Show testimonial from ${t.name}"></button>`).join('');
-
-    const photos = photoStack.querySelectorAll('.tt-photo');
-    const dots = dotsEl.querySelectorAll('.tt-dot');
-    let current = 0, timer = null, cycleTimeout = null;
-    const TYPE_MS = 18, ERASE_MS = 6, HOLD_MS = 2600;
-
-    function setActive(i) {
-      photos.forEach(p => p.classList.toggle('active', +p.dataset.i === i));
-      dots.forEach(d => d.classList.toggle('active', +d.dataset.i === i));
-    }
-
-    function typeQuote(i, cb) {
-      const text = '"' + testimonials[i].quote + '"';
-      let pos = 0;
-      whoEl.classList.remove('visible');
-      quoteEl.innerHTML = '<span class="tt-cursor"></span>';
-      clearInterval(timer);
-      timer = setInterval(() => {
-        pos++;
-        quoteEl.innerHTML = text.slice(0, pos).replace(/&/g, '&amp;').replace(/</g, '&lt;') + '<span class="tt-cursor"></span>';
-        if (pos >= text.length) {
-          clearInterval(timer);
-          nameEl.textContent = testimonials[i].name;
-          roleEl.textContent = testimonials[i].role;
-          whoEl.classList.add('visible');
-          if (cb) cb();
-        }
-      }, TYPE_MS);
-    }
-
-    function eraseQuote(cb) {
-      whoEl.classList.remove('visible');
-      const current = quoteEl.textContent;
-      let pos = current.length;
-      clearInterval(timer);
-      timer = setInterval(() => {
-        pos--;
-        quoteEl.innerHTML = current.slice(0, pos) + '<span class="tt-cursor"></span>';
-        if (pos <= 0) { clearInterval(timer); if (cb) cb(); }
-      }, ERASE_MS);
-    }
-
-    function goTo(i) {
-      clearTimeout(cycleTimeout);
-      current = i;
-      setActive(current);
-      eraseQuote(() => {
-        typeQuote(current, () => {
-          cycleTimeout = setTimeout(() => goTo((current + 1) % testimonials.length), HOLD_MS);
-        });
-      });
-    }
-
-    dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.i)));
-
-    typeQuote(current, () => {
-      cycleTimeout = setTimeout(() => goTo((current + 1) % testimonials.length), HOLD_MS);
-    });
-  })();
+  }
+  track.innerHTML = renderQuotes() + renderQuotes();
 
   // page router
   const pages = document.querySelectorAll('.page');
