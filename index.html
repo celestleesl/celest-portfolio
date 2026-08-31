@@ -281,6 +281,49 @@
   .case-gallery-item:hover img { transform: scale(1.04); }
   @media (max-width: 620px) { .case-gallery { grid-template-columns: repeat(2, 1fr); } }
 
+  /* ---------- editorial case-study template v2 ---------- */
+  .case-meta-strip { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; padding: 30px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 44px 0 60px; }
+  .case-meta-strip .case-vision-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--faint); margin-bottom: 10px; }
+  .case-vision-text { font-size: 15px; color: var(--ink); line-height: 1.5; font-weight: 500; }
+  .case-h1-v2 { font-family: "Fraunces", serif; font-weight: 500; font-size: clamp(44px, 6.6vw, 78px); line-height: 1.04; margin: 0; }
+  .case-h1-v2 em { font-style: italic; color: var(--muted); font-weight: 400; display: block; }
+  .case-pullquote { font-family: "Fraunces", serif; font-style: italic; font-weight: 500; font-size: clamp(21px, 2.4vw, 27px); line-height: 1.4; color: var(--ink); margin: 0 0 22px; max-width: 32ch; }
+
+  .case-band { border-radius: 36px; padding: 60px 50px; margin: 50px 0; }
+  .case-band.dark { background: var(--ink); color: var(--cream); }
+  .case-band.light { background: var(--cream); }
+  .case-band-eyebrow { font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: var(--faint); margin-bottom: 16px; }
+  .case-band.dark .case-band-eyebrow { color: color-mix(in srgb, var(--cream) 55%, transparent); }
+  .case-band-title { font-family: "Fraunces", serif; font-weight: 500; font-size: clamp(30px, 4vw, 44px); margin-bottom: 18px; max-width: 15ch; line-height: 1.1; }
+  .case-band-body { font-size: 15.5px; line-height: 1.65; color: var(--muted); max-width: 46ch; }
+  .case-band.dark .case-band-body { color: color-mix(in srgb, var(--cream) 68%, transparent); }
+  .case-band-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 46px; align-items: center; }
+  @media (max-width: 820px) { .case-band { padding: 44px 28px; } .case-band-grid { grid-template-columns: 1fr; } }
+
+  .case-challenge-list { display: flex; flex-direction: column; gap: 12px; }
+  .case-challenge-item { display: flex; align-items: center; gap: 16px; background: rgba(255,255,255,.06); border-radius: 16px; padding: 16px 20px; }
+  .case-band.light .case-challenge-item { background: var(--paper); border: 1px solid var(--line); }
+  .case-challenge-num {
+    width: 30px; height: 30px; border-radius: 50%; background: rgba(255,255,255,.12); display: flex; align-items: center;
+    justify-content: center; font-family: "Fraunces", serif; font-style: italic; font-size: 14px; flex: none;
+  }
+  .case-band.light .case-challenge-num { background: var(--card); color: var(--ink); }
+  .case-challenge-text { font-size: 14px; font-weight: 600; }
+
+  .case-impact-numbers { display: flex; gap: 44px; flex-wrap: wrap; margin: 22px 0 34px; }
+  .case-impact-value { font-family: "Fraunces", serif; font-weight: 600; font-size: clamp(34px, 4.6vw, 50px); line-height: 1; color: var(--ink); }
+  .case-impact-label { font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; color: var(--faint); margin-top: 8px; }
+
+  .case-pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 8px; }
+  .case-pillar { border-top: 2px solid var(--ink); padding-top: 16px; }
+  .case-pillar-title { font-family: "Fraunces", serif; font-size: 19px; margin-bottom: 8px; font-weight: 500; }
+  .case-pillar-desc { font-size: 14px; color: var(--muted); line-height: 1.6; margin: 0; }
+  @media (max-width: 760px) { .case-pillars-grid { grid-template-columns: 1fr; } }
+
+  .case-closing { text-align: center; padding: 70px 20px; border-top: 1px solid var(--line); margin-top: 20px; }
+  .case-closing-title { font-family: "Fraunces", serif; font-style: italic; font-weight: 500; font-size: clamp(30px, 4.6vw, 46px); margin-bottom: 30px; }
+  .case-closing .btn { display: inline-flex; }
+
   /* ---------- content band ---------- */
   .content-band { background: var(--ink); color: var(--cream); border-radius: 48px 48px 0 0; margin-top: -40px; position: relative; z-index: 2; padding-top: 100px; padding-bottom: 100px; }
   .content-band .sec-eyebrow { color: var(--sand); }
@@ -918,119 +961,131 @@
         <span class="case-tag" style="margin-bottom:0;">Case Study · @two.hungryhumans</span>
         <span class="case-status-pill live"><span class="dot"></span>Ongoing since 2024</span>
       </div>
-      <h1>Building a following from zero.</h1>
-      <div class="case-detail-layout">
+      <h1 class="case-h1-v2">Building a following<em>from zero.</em></h1>
+
+      <div class="case-meta-strip reveal">
         <div>
-          <div class="case-detail-body reveal">
-            <div class="case-section-title">The starting point</div>
-            <p>I started Two Hungry Humans as a passion project: a food review page covering Singapore and Johor Bahru. No brief, no fixed budget, just me figuring it out. It ended up becoming a real testbed for everything I know about marketing: content strategy, platform growth, community building, and eventually a bit of paid amplification, all without the safety net of an existing audience or client budget behind me.</p>
+          <div class="case-vision-label">The Vision</div>
+          <p class="case-vision-text">A self-funded food page turned into a real testbed for growth marketing, no client budget, no existing audience, just consistent execution.</p>
+        </div>
+        <div>
+          <div class="case-vision-label">Role</div>
+          <div class="case-sidebar-value">Co-Founder &amp; Content Lead</div>
+        </div>
+        <div>
+          <div class="case-vision-label">Duration</div>
+          <div class="case-sidebar-value">Jan 2024 - Present</div>
+        </div>
+      </div>
 
-            <div class="case-section-title">The challenge</div>
-            <p>Two things made early growth genuinely hard. First, figuring out what content actually resonated: the right format, hook, pacing. Second, building a system so I could keep producing content consistently without burning out from doing everything solo: filming, editing, captioning. Honestly, the ideas weren't the bottleneck. Getting from "good idea" to "posted" reliably, week after week, was.</p>
+      <div class="case-detail-body reveal">
+        <p class="case-pullquote">"I started Two Hungry Humans as a passion project, and it became a real testbed for everything I know about marketing."</p>
+        <p>A food review page covering Singapore and Johor Bahru. No brief, no fixed budget, just me figuring it out: content strategy, platform growth, community building, and eventually a bit of paid amplification, all without the safety net of an existing audience or client budget behind me.</p>
+      </div>
 
-            <div class="case-section-title">What I did</div>
-            <ul>
-              <li>Built a repeatable content workflow (batching filming, standardizing my editing style, templated caption structure) so I wasn't reinventing the process every time.</li>
-              <li>Focused tightly on a specific niche (Singapore and JB food specifically) instead of trying to be a generic food page.</li>
-              <li>Iterated on format based on what actually performed, refining hooks and pacing across Instagram and TikTok.</li>
-              <li>Kept organic content as the core strategy, but tested a small paid boost on one post to see what reach potential it could unlock.</li>
-              <li>Owned the entire pipeline myself: strategy, filming, editing, copywriting, posting, replying to comments, and eventually managing a small ad budget.</li>
-            </ul>
+      <div class="case-band dark reveal">
+        <div class="case-band-eyebrow">The Challenge</div>
+        <div class="case-band-title">Growing an account from absolutely nothing.</div>
+        <p class="case-band-body">Two things made early growth genuinely hard: figuring out what actually resonated, and building a system to keep producing without burning out. The ideas were never the bottleneck, getting from "good idea" to "posted" reliably was.</p>
+        <div class="case-challenge-list" style="margin-top:30px; max-width:520px;">
+          <div class="case-challenge-item"><span class="case-challenge-num">1</span><span class="case-challenge-text">Finding the right format, hook, and pacing with zero starting audience</span></div>
+          <div class="case-challenge-item"><span class="case-challenge-num">2</span><span class="case-challenge-text">Producing consistently, solo, without burning out on filming and editing</span></div>
+          <div class="case-challenge-item"><span class="case-challenge-num">3</span><span class="case-challenge-text">Turning "good idea" into "posted" reliably, week after week</span></div>
+        </div>
+      </div>
 
-            <div class="case-section-title">Results (last 90 days)</div>
-            <p>In roughly 3 months I hit 61,183 total views and reached 24,902 unique viewers, 80.5% of whom weren't even following the page yet, which tells me the content itself was doing the work of pulling in new people, not just re-serving existing followers. That translated into 2,296 interactions, 870 accounts engaged, and 2,495 profile visits. I've grown to 422 followers across 25 posts total.</p>
-            <div class="stat-row reveal">
-              <div class="stat"><div class="stat-label">Views (90d)</div><div class="stat-value">61,183</div></div>
-              <div class="stat"><div class="stat-label">Unique Viewers</div><div class="stat-value">24,902</div></div>
-              <div class="stat"><div class="stat-label">Followers</div><div class="stat-value">422</div></div>
-              <div class="stat"><div class="stat-label">Interactions</div><div class="stat-value">2,296</div></div>
-              <div class="stat"><div class="stat-label">Accounts Engaged</div><div class="stat-value">870</div></div>
-              <div class="stat"><div class="stat-label">Profile Visits</div><div class="stat-value">2,495</div></div>
-            </div>
-            <p>Reels and Stories are carrying views almost evenly, but static posts punch above their weight on interactions, which tells me people engage differently depending on format, something I want to lean into more deliberately.</p>
-            <div class="chart-block reveal">
-              <div class="chart-title">Views by Format</div>
-              <div class="chart-bars">
-                <div class="chart-bar-row"><div class="chart-bar-label">Reels</div><div class="chart-bar-track"><div class="chart-bar-fill" data-value="46.8"></div></div><div class="chart-bar-value">46.8%</div></div>
-                <div class="chart-bar-row"><div class="chart-bar-label">Stories</div><div class="chart-bar-track"><div class="chart-bar-fill" data-value="44.4"></div></div><div class="chart-bar-value">44.4%</div></div>
-                <div class="chart-bar-row"><div class="chart-bar-label">Posts</div><div class="chart-bar-track"><div class="chart-bar-fill" data-value="8.8"></div></div><div class="chart-bar-value">8.8%</div></div>
-              </div>
-            </div>
-            <div class="chart-block reveal">
-              <div class="chart-title">Static Posts: Share of Views vs. Share of Interactions</div>
-              <div class="chart-bars">
-                <div class="chart-bar-row"><div class="chart-bar-label">Views</div><div class="chart-bar-track"><div class="chart-bar-fill" data-value="8.8"></div></div><div class="chart-bar-value">8.8%</div></div>
-                <div class="chart-bar-row"><div class="chart-bar-label">Interactions</div><div class="chart-bar-track"><div class="chart-bar-fill alt" data-value="53.3"></div></div><div class="chart-bar-value">53.3%</div></div>
-              </div>
-            </div>
-            <p>My top-performing post organically was a June 23rd piece that hit 15.6K views and 269 interactions on its own, no paid support. Four of my next best posts (13–9.3K, 5.9K, 2.9K, 2K views) came from a mix of formats, which is a good sign the page isn't a one-hit wonder.</p>
-
-            <div class="case-proof-box reveal">
-              <div class="case-section-title">Proof point: testing paid amplification</div>
-              <p style="color:var(--muted); margin-bottom:20px;">Separately, I ran one small paid test on my "I started a food blog: send help" reel: SGD 17.92 over 6 days. It drove 12,571 of that post's 16,027 total views, 8,587 reach, and 450 profile visits, at just $0.04 per profile visit. It also surfaced a useful audience insight I didn't expect: 95.5% of the paid reach was in Johor Bahru versus only 4.5% in Singapore, which is now shaping how I think about targeting JB content going forward.</p>
-              <div class="chart-block">
-                <div class="chart-title">Organic vs. Paid Views on This Reel</div>
-                <div class="chart-bars">
-                  <div class="chart-bar-row"><div class="chart-bar-label">Organic</div><div class="chart-bar-track"><div class="chart-bar-fill" data-value="21.6"></div></div><div class="chart-bar-value">3,456</div></div>
-                  <div class="chart-bar-row"><div class="chart-bar-label">Paid</div><div class="chart-bar-track"><div class="chart-bar-fill alt" data-value="78.4"></div></div><div class="chart-bar-value">12,571</div></div>
-                </div>
-              </div>
-              <div class="stat-row">
-                <div class="stat"><div class="stat-label">Ad Spend</div><div class="stat-value">SGD 17.92</div></div>
-                <div class="stat"><div class="stat-label">Views from Paid</div><div class="stat-value">12,571</div></div>
-                <div class="stat"><div class="stat-label">Reach</div><div class="stat-value">8,587</div></div>
-                <div class="stat"><div class="stat-label">Profile Visits</div><div class="stat-value">450</div></div>
-                <div class="stat"><div class="stat-label">Cost / Profile Visit</div><div class="stat-value">$0.04</div></div>
-                <div class="stat"><div class="stat-label">Audience in JB</div><div class="stat-value">95.5%</div></div>
-              </div>
-              <div class="chart-block" style="margin-bottom:6px;">
-                <div class="chart-title">Paid Reach by Location</div>
-                <div class="chart-bars">
-                  <div class="chart-bar-row"><div class="chart-bar-label">Johor Bahru</div><div class="chart-bar-track"><div class="chart-bar-fill" data-value="95.5"></div></div><div class="chart-bar-value">95.5%</div></div>
-                  <div class="chart-bar-row"><div class="chart-bar-label">Singapore</div><div class="chart-bar-track"><div class="chart-bar-fill alt" data-value="4.5"></div></div><div class="chart-bar-value">4.5%</div></div>
-                </div>
-              </div>
-            </div>
-
-            <p>I'm also now starting to field early media drop and brand collaboration offers as a direct result of the page's traction (details to come once those are confirmed).</p>
-
-            <div class="case-section-title">What I'd do differently</div>
-            <p>A few things I want to tighten up going forward. My posting cadence still isn't as consistent as I'd like, so building a stricter content calendar is next on my list. I've also been going a lot on gut feel about what works. I want to get more rigorous about tracking performance data so decisions are backed by numbers, not just instinct. I'm also aware I lean heavily on one content format, so I want to test more variety (carousels, stories, behind-the-scenes) instead of defaulting to reels.</p>
-            <p>On a personal note, I'm working on getting more comfortable being on camera. It's something I actively want to do more of, and I think leaning into it will unlock a level of content (and connection with the audience) that scripted or edited posts can't fully replace.</p>
-
-            <div class="case-section-title">Why it matters</div>
-            <p>This project shows I can grow a brand from near zero to over 60K views and inbound brand interest in about 3 months, using organic-first strategy, niche positioning, and small, targeted paid tests to actually learn something about the audience rather than just buy numbers. It's the same discipline (content strategy, performance analysis, efficient spend) that I bring to client work at Physio &amp; Sole, AnjouHealth, and beyond.</p>
+      <div class="case-detail-body reveal">
+        <div class="case-section-title" style="margin-top:0;">What I did</div>
+        <div class="case-pillars-grid">
+          <div class="case-pillar">
+            <div class="case-pillar-title">Repeatable Workflow</div>
+            <p class="case-pillar-desc">Batched filming, a standardized editing style, and a templated caption structure, so I wasn't reinventing the process every time.</p>
           </div>
-          <div style="margin-top:36px;">
-            <a href="https://instagram.com/two.hungryhumans" target="_blank" rel="noopener" class="btn btn-ink">Visit @two.hungryhumans
-              <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
+          <div class="case-pillar">
+            <div class="case-pillar-title">Tight Niche Focus</div>
+            <p class="case-pillar-desc">Singapore and JB food specifically, instead of trying to be a generic food page competing with everyone.</p>
+          </div>
+          <div class="case-pillar">
+            <div class="case-pillar-title">Format Iteration</div>
+            <p class="case-pillar-desc">Refining hooks and pacing across Instagram and TikTok based on what actually performed, not what I assumed would.</p>
           </div>
         </div>
-        <aside class="case-sidebar reveal">
-          <div class="case-sidebar-block" style="border-top:none; padding-top:0;">
-            <div class="case-sidebar-label">Role</div>
-            <div class="case-sidebar-value">Co-Founder &amp; Content Lead</div>
-          </div>
-          <div class="case-sidebar-block">
-            <div class="case-sidebar-label">What I did</div>
-            <div class="case-role-tags">
-              <span class="case-role-tag">Content Strategy</span>
-              <span class="case-role-tag">Filming &amp; Editing</span>
-              <span class="case-role-tag">Caption Writing</span>
-              <span class="case-role-tag">Social Growth</span>
-              <span class="case-role-tag">Paid Ads</span>
-            </div>
-          </div>
-          <div class="case-sidebar-block">
-            <div class="case-sidebar-label">Platforms</div>
-            <div class="case-role-tags">
-              <span class="case-role-tag">Instagram</span>
-              <span class="case-role-tag">TikTok</span>
-            </div>
-          </div>
-        </aside>
+        <p style="margin-top:26px;">I owned the entire pipeline myself: strategy, filming, editing, copywriting, posting, replying to comments, and eventually managing a small ad budget, kept organic as the core strategy, but tested a small paid boost on one post to see what reach potential it could unlock.</p>
       </div>
+
+      <div class="case-band light reveal">
+        <div class="case-band-eyebrow">Data &amp; Impact</div>
+        <div class="case-band-title">Growth that started from zero.</div>
+        <p class="case-band-body">In roughly 3 months, reaching 24,902 unique viewers, 80.5% of whom weren't even following the page yet, which tells me the content itself was doing the work of pulling in new people, not just re-serving existing followers.</p>
+        <div class="case-impact-numbers">
+          <div><div class="case-impact-value">61,183</div><div class="case-impact-label">Views (90 days)</div></div>
+          <div><div class="case-impact-value">422</div><div class="case-impact-label">Followers</div></div>
+          <div><div class="case-impact-value">2,296</div><div class="case-impact-label">Interactions</div></div>
+        </div>
+        <div class="chart-block reveal" style="margin-bottom:0;">
+          <div class="chart-title">Views by Format</div>
+          <div class="chart-bars">
+            <div class="chart-bar-row"><div class="chart-bar-label">Reels</div><div class="chart-bar-track"><div class="chart-bar-fill" data-value="46.8"></div></div><div class="chart-bar-value">46.8%</div></div>
+            <div class="chart-bar-row"><div class="chart-bar-label">Stories</div><div class="chart-bar-track"><div class="chart-bar-fill" data-value="44.4"></div></div><div class="chart-bar-value">44.4%</div></div>
+            <div class="chart-bar-row"><div class="chart-bar-label">Posts</div><div class="chart-bar-track"><div class="chart-bar-fill" data-value="8.8"></div></div><div class="chart-bar-value">8.8%</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-detail-body reveal">
+        <div class="chart-block reveal">
+          <div class="chart-title">Static Posts: Share of Views vs. Share of Interactions</div>
+          <div class="chart-bars">
+            <div class="chart-bar-row"><div class="chart-bar-label">Views</div><div class="chart-bar-track"><div class="chart-bar-fill" data-value="8.8"></div></div><div class="chart-bar-value">8.8%</div></div>
+            <div class="chart-bar-row"><div class="chart-bar-label">Interactions</div><div class="chart-bar-track"><div class="chart-bar-fill alt" data-value="53.3"></div></div><div class="chart-bar-value">53.3%</div></div>
+          </div>
+        </div>
+        <p>Static posts punch above their weight on interactions, which tells me people engage differently depending on format, something I want to lean into more deliberately. My top-performing post organically was a June 23rd piece that hit 15.6K views and 269 interactions on its own, no paid support. Four of my next best posts (13–9.3K, 5.9K, 2.9K, 2K views) came from a mix of formats, a good sign the page isn't a one-hit wonder.</p>
+
+        <div class="case-proof-box reveal">
+          <div class="case-section-title">Proof point: testing paid amplification</div>
+          <p style="color:var(--muted); margin-bottom:20px;">Separately, I ran one small paid test on my "I started a food blog: send help" reel: SGD 17.92 over 6 days. It drove 12,571 of that post's 16,027 total views, 8,587 reach, and 450 profile visits, at just $0.04 per profile visit. It also surfaced a useful audience insight I didn't expect: 95.5% of the paid reach was in Johor Bahru versus only 4.5% in Singapore, which is now shaping how I think about targeting JB content going forward.</p>
+          <div class="chart-block">
+            <div class="chart-title">Organic vs. Paid Views on This Reel</div>
+            <div class="chart-bars">
+              <div class="chart-bar-row"><div class="chart-bar-label">Organic</div><div class="chart-bar-track"><div class="chart-bar-fill" data-value="21.6"></div></div><div class="chart-bar-value">3,456</div></div>
+              <div class="chart-bar-row"><div class="chart-bar-label">Paid</div><div class="chart-bar-track"><div class="chart-bar-fill alt" data-value="78.4"></div></div><div class="chart-bar-value">12,571</div></div>
+            </div>
+          </div>
+          <div class="stat-row">
+            <div class="stat"><div class="stat-label">Ad Spend</div><div class="stat-value">SGD 17.92</div></div>
+            <div class="stat"><div class="stat-label">Views from Paid</div><div class="stat-value">12,571</div></div>
+            <div class="stat"><div class="stat-label">Reach</div><div class="stat-value">8,587</div></div>
+            <div class="stat"><div class="stat-label">Profile Visits</div><div class="stat-value">450</div></div>
+            <div class="stat"><div class="stat-label">Cost / Profile Visit</div><div class="stat-value">$0.04</div></div>
+            <div class="stat"><div class="stat-label">Audience in JB</div><div class="stat-value">95.5%</div></div>
+          </div>
+          <div class="chart-block" style="margin-bottom:6px;">
+            <div class="chart-title">Paid Reach by Location</div>
+            <div class="chart-bars">
+              <div class="chart-bar-row"><div class="chart-bar-label">Johor Bahru</div><div class="chart-bar-track"><div class="chart-bar-fill" data-value="95.5"></div></div><div class="chart-bar-value">95.5%</div></div>
+              <div class="chart-bar-row"><div class="chart-bar-label">Singapore</div><div class="chart-bar-track"><div class="chart-bar-fill alt" data-value="4.5"></div></div><div class="chart-bar-value">4.5%</div></div>
+            </div>
+          </div>
+        </div>
+
+        <p>I'm also now starting to field early media drop and brand collaboration offers as a direct result of the page's traction (details to come once those are confirmed).</p>
+
+        <div class="case-section-title">What I'd do differently</div>
+        <p>My posting cadence still isn't as consistent as I'd like, so building a stricter content calendar is next on my list. I've also been going a lot on gut feel about what works. I want to get more rigorous about tracking performance data so decisions are backed by numbers, not just instinct. I'm also aware I lean heavily on one content format, so I want to test more variety (carousels, stories, behind-the-scenes) instead of defaulting to reels.</p>
+        <p>On a personal note, I'm working on getting more comfortable being on camera. It's something I actively want to do more of, and I think leaning into it will unlock a level of content (and connection with the audience) that scripted or edited posts can't fully replace.</p>
+
+        <div class="case-section-title">Why it matters</div>
+        <p>This project shows I can grow a brand from near zero to over 60K views and inbound brand interest in about 3 months, using organic-first strategy, niche positioning, and small, targeted paid tests to actually learn something about the audience rather than just buy numbers. It's the same discipline (content strategy, performance analysis, efficient spend) that I bring to client work at Physio &amp; Sole, AnjouHealth, and beyond.</p>
+      </div>
+
+      <div class="case-closing reveal">
+        <div class="case-closing-title">Experience the journey live.</div>
+        <a href="https://instagram.com/two.hungryhumans" target="_blank" rel="noopener" class="btn btn-ink">Visit @two.hungryhumans
+          <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
       <div class="case-next">
         <div>
           <div class="case-next-label">Next case study</div>
@@ -1054,27 +1109,58 @@
         <span class="case-tag" style="margin-bottom:0;">Case Study · Physio &amp; Sole Clinic</span>
         <span class="case-status-pill live"><span class="dot"></span>Ongoing since 2024</span>
       </div>
-      <h1>Making medical marketing feel human.</h1>
-      <div class="case-detail-layout">
+      <h1 class="case-h1-v2">Making medical marketing<em>feel human.</em></h1>
+
+      <div class="case-meta-strip reveal">
         <div>
-          <div class="case-detail-body reveal">
-            <div class="case-section-title">The starting point</div>
-            <p>Physio &amp; Sole Clinic needed its marketing to feel less like a service listing and more like something patients would actually want to engage with, especially tricky in a medical space where content can easily read as dry or overly clinical.</p>
+          <div class="case-vision-label">The Vision</div>
+          <p class="case-vision-text">A shoe-review video series that turns a clinic's podiatrist into a relatable, shareable voice, not a formal talking head.</p>
+        </div>
+        <div>
+          <div class="case-vision-label">Role</div>
+          <div class="case-sidebar-value">Marketing Executive</div>
+        </div>
+        <div>
+          <div class="case-vision-label">Duration</div>
+          <div class="case-sidebar-value">2024 - Present</div>
+        </div>
+      </div>
 
-            <div class="case-section-title">The spark</div>
-            <p>It started with my lady boss Fiona spotting a genuinely good, affordable school shoe at Decathlon and wanting to talk about it. That became "Hey Podiatrist, Can We Ask About Kids School Shoes? (Decathlon Edition)," which pulled 37.6K views. Around the same time she also filmed some casual clips on a Japan trip talking about shoes there, and that one hit 94K. Two solid results back to back was enough signal for the team to decide this format was worth building on properly: our own podiatrist, reacting to and reviewing real shoes on camera, in a fun, relatable way instead of a formal clinical tone.</p>
+      <div class="case-detail-body reveal">
+        <p class="case-pullquote">"Our own podiatrist, reacting to and reviewing real shoes on camera, in a fun, relatable way instead of a formal clinical tone."</p>
+        <p>It started with my lady boss Fiona spotting a genuinely good, affordable school shoe at Decathlon and wanting to talk about it. That became "Hey Podiatrist, Can We Ask About Kids School Shoes? (Decathlon Edition)," which pulled 37.6K views. Around the same time she also filmed some casual clips on a Japan trip talking about shoes there, and that one hit 94K. Two solid results back to back was enough signal for the team to decide this format was worth building on properly.</p>
+      </div>
 
-            <div class="case-section-title">What I did</div>
-            <ul>
-              <li>Spotted the early traction on the Decathlon and Japan videos and pitched building it into an ongoing content series.</li>
-              <li>Grew the format into a real brand partnership pipeline, liaising directly with shoe brands like Decathlon, Bata, and FitFlop to get product in for review (with more, like Hoka, in active discussion).</li>
-              <li>Developed the format further: hooks, captions, and pacing tuned for virality (bold text overlays, relatable pain points like "why parents are fighting over these shoes").</li>
-              <li>Deliberately leaned into a controversial angle on one video ("Sheena No-No-Shoes"), challenging the idea that the flip-flops most of us wore as kids were actually fine for our feet.</li>
-              <li>Worked with our podiatrist to keep the medical credibility intact while making the tone fun and shareable.</li>
-              <li>Led SEO and content strategy on the clinic's website, mapping keyword research to real patient search intent, and collaborated directly with clinicians on blog content, author bios, and internal linking.</li>
-            </ul>
+      <div class="case-band dark reveal">
+        <div class="case-band-eyebrow">The Challenge</div>
+        <div class="case-band-title">Marketing that doesn't read as clinical.</div>
+        <p class="case-band-body">Physio &amp; Sole Clinic needed its marketing to feel less like a service listing and more like something patients would actually want to engage with, especially tricky in a medical space where content can easily read as dry or overly clinical.</p>
+        <div class="case-challenge-list" style="margin-top:30px; max-width:520px;">
+          <div class="case-challenge-item"><span class="case-challenge-num">1</span><span class="case-challenge-text">Keeping medical credibility intact while making the tone fun and shareable</span></div>
+          <div class="case-challenge-item"><span class="case-challenge-num">2</span><span class="case-challenge-text">Turning early traction into a repeatable, brand-partnership-ready format</span></div>
+          <div class="case-challenge-item"><span class="case-challenge-num">3</span><span class="case-challenge-text">Tuning hooks and pacing for virality without losing the clinic's voice</span></div>
+        </div>
+      </div>
 
-            <div class="case-proof-box reveal">
+      <div class="case-detail-body reveal">
+        <div class="case-section-title" style="margin-top:0;">What I did</div>
+        <div class="case-pillars-grid">
+          <div class="case-pillar">
+            <div class="case-pillar-title">Format Development</div>
+            <p class="case-pillar-desc">Spotted the early traction on the Decathlon and Japan videos and pitched building it into an ongoing content series.</p>
+          </div>
+          <div class="case-pillar">
+            <div class="case-pillar-title">Brand Partnerships</div>
+            <p class="case-pillar-desc">Grew the format into a real pipeline, liaising directly with Decathlon, Bata, and FitFlop to get product in for review.</p>
+          </div>
+          <div class="case-pillar">
+            <div class="case-pillar-title">SEO &amp; Content Strategy</div>
+            <p class="case-pillar-desc">Mapped keyword research to real patient search intent, collaborating directly with clinicians on blog content and internal linking.</p>
+          </div>
+        </div>
+        <p style="margin-top:26px;">I also deliberately leaned into a controversial angle on one video ("Sheena No-No-Shoes"), challenging the idea that the flip-flops most of us wore as kids were actually fine for our feet, while working with our podiatrist to keep the medical credibility intact.</p>
+
+        <div class="case-proof-box reveal">
               <div class="case-section-title">Proof point: the breakout video</div>
               <p style="color:var(--muted); margin-bottom:20px;">"Sheena No-No-Shoes" (posted April 2, 2025) is the account's clear high point: 146,378 reach, 193,519 views, a 5.39% engagement rate, and 1,120 new followers directly off that one post. A small follow-up ad boost in May added another 10,239 views and 142 followers for under $60.</p>
               <div class="stat-row">
@@ -1095,17 +1181,27 @@
             </div>
             <p>The shares-to-likes ratio here (nearly 6K shares against 1.3K likes) is unlike anything else in the account's history, and it's exactly what you'd expect from a genuinely debate-sparking, counterintuitive claim rather than a normal "nice video" reaction. This is the clearest evidence that the controversial angle, not just production quality, is what drove the breakout.</p>
 
-            <div class="case-section-title">Account growth</div>
-            <p>Instagram grew from 2,749 followers (Feb 2025) to 7,147 followers now, up 160% in about 18 months. The growth wasn't steady; there's one obvious spike: +1,188 followers (+40%) in the single month between March and April 2025, lining up exactly with "Sheena No-No-Shoes" going live on April 2. One video moved the needle more than months of regular posting combined.</p>
-            <div class="chart-block reveal">
-              <div class="chart-title">Instagram Followers</div>
-              <div class="chart-bars">
-                <div class="chart-bar-row"><div class="chart-bar-label">Feb 2025</div><div class="chart-bar-track"><div class="chart-bar-fill" data-value="38.5"></div></div><div class="chart-bar-value">2,749</div></div>
-                <div class="chart-bar-row"><div class="chart-bar-label">Now</div><div class="chart-bar-track"><div class="chart-bar-fill alt" data-value="100"></div></div><div class="chart-bar-value">7,147</div></div>
-              </div>
-            </div>
+          </div>
 
-            <div class="case-section-title">Audience insight: kids vs. adults</div>
+      <div class="case-band light reveal">
+        <div class="case-band-eyebrow">Account Growth</div>
+        <div class="case-band-title">One video moved the needle more than months of posting.</div>
+        <p class="case-band-body">Instagram grew from 2,749 followers to 7,147 now, up 160% in about 18 months. The growth wasn't steady: +1,188 followers (+40%) came in the single month between March and April 2025, lining up exactly with "Sheena No-No-Shoes" going live.</p>
+        <div class="case-impact-numbers">
+          <div><div class="case-impact-value">7,147</div><div class="case-impact-label">Followers Now</div></div>
+          <div><div class="case-impact-value">+160%</div><div class="case-impact-label">Growth (18mo)</div></div>
+        </div>
+        <div class="chart-block reveal" style="margin-bottom:0;">
+          <div class="chart-title">Instagram Followers</div>
+          <div class="chart-bars">
+            <div class="chart-bar-row"><div class="chart-bar-label">Feb 2025</div><div class="chart-bar-track"><div class="chart-bar-fill" data-value="38.5"></div></div><div class="chart-bar-value">2,749</div></div>
+            <div class="chart-bar-row"><div class="chart-bar-label">Now</div><div class="chart-bar-track"><div class="chart-bar-fill alt" data-value="100"></div></div><div class="chart-bar-value">7,147</div></div>
+          </div>
+        </div>
+      </div>
+
+          <div class="case-detail-body reveal">
+            <div class="case-section-title" style="margin-top:0;">Audience insight: kids vs. adults</div>
             <p>Once the format was working, we tried extending it to adult shoe reviews, but that content didn't land nearly as hard. My read on why: parents are highly motivated by their kids' growth and development, so "is this shoe actually good for my child's feet" hits an emotional nerve. Adults tend to prioritize how a shoe looks over the wellness angle, so the same format doesn't carry the same urgency.</p>
 
             <div class="case-section-title">Brand partnerships</div>
@@ -1155,24 +1251,14 @@
             <div class="case-section-title">Why it matters</div>
             <p>This shows I can spot a content signal early and turn it into something bigger: a viral moment, a repeatable format, and an actual brand partnership engine, backed by real, verified data rather than inflated numbers. It also shows range across video strategy, paid social, SEO, and even catching technical issues that pure marketing work wouldn't usually touch.</p>
           </div>
-        </div>
-        <aside class="case-sidebar reveal">
-          <div class="case-sidebar-block" style="border-top:none; padding-top:0;">
-            <div class="case-sidebar-label">Role</div>
-            <div class="case-sidebar-value">Marketing Executive</div>
-          </div>
-          <div class="case-sidebar-block">
-            <div class="case-sidebar-label">What I did</div>
-            <div class="case-role-tags">
-              <span class="case-role-tag">Video Strategy</span>
-              <span class="case-role-tag">Brand Partnerships</span>
-              <span class="case-role-tag">SEO</span>
-              <span class="case-role-tag">Paid Social</span>
-              <span class="case-role-tag">Event Support</span>
-            </div>
-          </div>
-        </aside>
+
+      <div class="case-closing reveal">
+        <div class="case-closing-title">Made possible by one good idea, on camera.</div>
+        <a href="#work" class="btn btn-ink">See the full portfolio
+          <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
       </div>
+
       <div class="case-next">
         <div>
           <div class="case-next-label">Next case study</div>
@@ -1196,25 +1282,63 @@
         <span class="case-tag" style="margin-bottom:0;">Case Study · AnjouHealth</span>
         <span class="case-status-pill live"><span class="dot"></span>Ongoing</span>
       </div>
-      <h1>A confident, minimal wellness vibe.</h1>
-      <div class="case-detail-layout">
+      <h1 class="case-h1-v2">A confident, minimal<em>wellness vibe.</em></h1>
+
+      <div class="case-meta-strip reveal">
         <div>
-          <div class="case-detail-body reveal">
-            <div class="case-section-title">The starting point</div>
-            <p>AnjouHealth, the sister brand to Physio &amp; Sole, needed a website and content presence that matched where the brand was actually headed: a growing, more comprehensive workplace wellness and safety compliance offering (BizSafe certifications, WSH programmes, corporate wellness), not just a simple service page.</p>
+          <div class="case-vision-label">The Vision</div>
+          <p class="case-vision-text">A calmer, more comprehensive workplace wellness brand, rebuilt and re-platformed without losing a single point of search visibility.</p>
+        </div>
+        <div>
+          <div class="case-vision-label">Role</div>
+          <div class="case-sidebar-value">Marketing Executive</div>
+        </div>
+        <div>
+          <div class="case-vision-label">Duration</div>
+          <div class="case-sidebar-value">Ongoing</div>
+        </div>
+      </div>
 
-            <div class="case-section-title">What I did</div>
-            <ul>
-              <li>Led two site revamps. The first rebuilt the site to reflect the brand's expanding service lineup as it grew. The second was a full technical migration off WordPress onto a modern AI-native stack (Claude, Vercel, and GitHub for deployment), similar to how I build and ship my own portfolio.</li>
-              <li>Owned the redesign direction and SEO strategy across both revamps, while my colleague led the technical migration build.</li>
-              <li>Mapped content and keyword strategy to real search demand in the workplace safety and corporate wellness space (BizSafe certification levels, WSH officer requirements, toolbox meetings, ergonomics).</li>
-              <li>Managed cross-brand promotion between AnjouHealth and Physio &amp; Sole.</li>
-              <li>Handled event support, including translating WSH content for on-the-ground activations.</li>
-            </ul>
+      <div class="case-detail-body reveal">
+        <p class="case-pullquote">"A growing, more comprehensive workplace wellness and safety compliance offering, not just a simple service page."</p>
+        <p>AnjouHealth, the sister brand to Physio &amp; Sole, needed a website and content presence that matched where the brand was actually headed: BizSafe certifications, WSH programmes, corporate wellness.</p>
+      </div>
 
-            <div class="case-proof-box reveal">
+      <div class="case-band dark reveal">
+        <div class="case-band-eyebrow">The Challenge</div>
+        <div class="case-band-title">Rebuilding without losing search visibility.</div>
+        <p class="case-band-body">Two revamps, back to back: a business-driven redesign, then a full technical migration off WordPress. The risk with any platform migration is losing rankings built up over years in the process.</p>
+        <div class="case-challenge-list" style="margin-top:30px; max-width:520px;">
+          <div class="case-challenge-item"><span class="case-challenge-num">1</span><span class="case-challenge-text">Reflecting an expanding service lineup without a full rebuild each time</span></div>
+          <div class="case-challenge-item"><span class="case-challenge-num">2</span><span class="case-challenge-text">Migrating platforms without a single point of SEO disruption</span></div>
+          <div class="case-challenge-item"><span class="case-challenge-num">3</span><span class="case-challenge-text">Mapping content to a niche B2B compliance audience, not consumers</span></div>
+        </div>
+      </div>
+
+      <div class="case-detail-body reveal">
+        <div class="case-section-title" style="margin-top:0;">What I did</div>
+        <div class="case-pillars-grid">
+          <div class="case-pillar">
+            <div class="case-pillar-title">Two Site Revamps</div>
+            <p class="case-pillar-desc">The first rebuilt the site for the brand's expanding lineup; the second was a full migration off WordPress onto a modern AI-native stack.</p>
+          </div>
+          <div class="case-pillar">
+            <div class="case-pillar-title">SEO Strategy</div>
+            <p class="case-pillar-desc">Mapped content and keywords to real search demand: BizSafe levels, WSH officer requirements, toolbox meetings, ergonomics.</p>
+          </div>
+          <div class="case-pillar">
+            <div class="case-pillar-title">Cross-Brand &amp; Events</div>
+            <p class="case-pillar-desc">Managed cross-promotion with Physio &amp; Sole and handled event support, translating WSH content for on-the-ground activations.</p>
+          </div>
+        </div>
+
+        <div class="case-proof-box reveal" style="margin-top:36px;">
               <div class="case-section-title">Proof point: organic growth through two revamps</div>
               <p style="color:var(--muted); margin-bottom:20px;">Organic performance was flat and modest for months (22 to 56 clicks per month between August 2025 and February 2026), then took off the month the redesign shipped. Clicks climbed steadily from 100 (March) to 666 (July), roughly a 12x increase from the pre-redesign baseline to peak. Crucially, the July AI migration didn't cause an SEO dip: July was actually the single best month on record, and August (even as a partial month) is already tracking close behind. That's real evidence the technical migration was executed cleanly without sacrificing search visibility.</p>
+              <div class="case-impact-numbers" style="margin-top:0;">
+                <div><div class="case-impact-value">12x</div><div class="case-impact-label">Growth to Peak</div></div>
+                <div><div class="case-impact-value">666</div><div class="case-impact-label">Clicks in July</div></div>
+              </div>
               <div class="chart-block" style="margin-bottom:6px;">
                 <div class="chart-title">Organic Clicks per Month</div>
                 <div class="chart-bars">
@@ -1259,24 +1383,14 @@
             <div class="case-section-title">Why it matters</div>
             <p>This shows I can lead a brand through real structural change (both a business-driven redesign and a full technical platform migration) without losing the SEO foundation underneath it. It also shows I operate across formats and markets: web strategy and SEO, print and merch design, video production, live presenting, and regional event execution, adapting the right playbook for each brand and context rather than one generic approach.</p>
           </div>
-        </div>
-        <aside class="case-sidebar reveal">
-          <div class="case-sidebar-block" style="border-top:none; padding-top:0;">
-            <div class="case-sidebar-label">Role</div>
-            <div class="case-sidebar-value">Marketing Executive</div>
-          </div>
-          <div class="case-sidebar-block">
-            <div class="case-sidebar-label">What I did</div>
-            <div class="case-role-tags">
-              <span class="case-role-tag">Site Migration</span>
-              <span class="case-role-tag">SEO Strategy</span>
-              <span class="case-role-tag">Event Design</span>
-              <span class="case-role-tag">Video Production</span>
-              <span class="case-role-tag">Live Presenting</span>
-            </div>
-          </div>
-        </aside>
+
+      <div class="case-closing reveal">
+        <div class="case-closing-title">Structural change, without the setback.</div>
+        <a href="#work" class="btn btn-ink">See the full portfolio
+          <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
       </div>
+
       <div class="case-next">
         <div>
           <div class="case-next-label">Next case study</div>
@@ -1300,38 +1414,71 @@
         <span class="case-tag" style="margin-bottom:0;">Case Study · Wunderfolks</span>
         <span class="case-status-pill">2022 - 2023</span>
       </div>
-      <h1>Turning a shop opening into a social moment.</h1>
-      <div class="case-detail-layout">
+      <h1 class="case-h1-v2">Turning a shop opening<em>into a social moment.</em></h1>
+
+      <div class="case-meta-strip reveal">
         <div>
-          <div class="case-detail-body reveal">
-            <p>For Wunderfolks' Tampines outlet opening, my role went beyond just posting on social media. I planned and executed a full content strategy aimed at building anticipation before the doors even opened: brainstorming ideas, designing graphics and videos, scheduling for optimal reach, and tracking how the audience responded.</p>
-            <p>I collaborated with food bloggers and local influencers to extend reach and credibility, and ran a giveaway campaign designed to drive real engagement: following, liking, sharing to a story, and tagging friends in the comments, each action compounding the post's visibility.</p>
-            <p>I also designed the flyers and promotional materials distributed at the event to drive foot traffic, and produced short videos giving followers a first look at the new space, the coffee, and the pastries, ahead of opening day.</p>
-            <p>A consistent visual theme carried across every post, reinforcing brand identity and making the shop instantly recognisable across platforms, from the teasers through to opening day itself.</p>
+          <div class="case-vision-label">The Vision</div>
+          <p class="case-vision-text">Build real anticipation for a new outlet before the doors even open, and make the brand instantly recognisable across every platform.</p>
+        </div>
+        <div>
+          <div class="case-vision-label">Role</div>
+          <div class="case-sidebar-value">Marketing &amp; Graphic Designer</div>
+        </div>
+        <div>
+          <div class="case-vision-label">Duration</div>
+          <div class="case-sidebar-value">2022 - 2023</div>
+        </div>
+      </div>
+
+      <div class="case-detail-body reveal">
+        <p class="case-pullquote">"A consistent visual theme carried across every post, from the teasers through to opening day itself."</p>
+        <p>For Wunderfolks' Tampines outlet opening, my role went beyond just posting on social media. I planned and executed a full content strategy aimed at building anticipation before the doors even opened: brainstorming ideas, designing graphics and videos, scheduling for optimal reach, and tracking how the audience responded.</p>
+      </div>
+
+      <div class="case-band dark reveal">
+        <div class="case-band-eyebrow">The Approach</div>
+        <div class="case-band-title">Compounding actions, not just posts.</div>
+        <p class="case-band-body">A giveaway campaign built so every action extended the post's reach on its own, plus real-world materials to convert that online buzz into foot traffic on opening day.</p>
+        <div class="case-challenge-list" style="margin-top:30px; max-width:520px;">
+          <div class="case-challenge-item"><span class="case-challenge-num">1</span><span class="case-challenge-text">Following, liking, sharing to a story, and tagging friends in the comments</span></div>
+          <div class="case-challenge-item"><span class="case-challenge-num">2</span><span class="case-challenge-text">Collaborating with food bloggers and local influencers for reach and credibility</span></div>
+          <div class="case-challenge-item"><span class="case-challenge-num">3</span><span class="case-challenge-text">Flyers and promotional materials designed to drive real foot traffic</span></div>
+        </div>
+      </div>
+
+      <div class="case-detail-body reveal">
+        <div class="case-section-title" style="margin-top:0;">What I did</div>
+        <div class="case-pillars-grid">
+          <div class="case-pillar">
+            <div class="case-pillar-title">Content Strategy</div>
+            <p class="case-pillar-desc">Brainstorming, designing graphics and videos, and scheduling for optimal reach ahead of the opening.</p>
+          </div>
+          <div class="case-pillar">
+            <div class="case-pillar-title">Influencer Collabs</div>
+            <p class="case-pillar-desc">Partnered with food bloggers and local influencers to extend reach and lend credibility to the launch.</p>
+          </div>
+          <div class="case-pillar">
+            <div class="case-pillar-title">Flyer &amp; Video Design</div>
+            <p class="case-pillar-desc">Produced short videos giving followers a first look at the space, plus flyers distributed on the day.</p>
           </div>
         </div>
-        <aside class="case-sidebar reveal">
-          <div class="case-sidebar-block" style="border-top:none; padding-top:0;">
-            <div class="case-sidebar-label">Role</div>
-            <div class="case-sidebar-value">Marketing &amp; Graphic Designer</div>
-          </div>
-          <div class="case-sidebar-block">
-            <div class="case-sidebar-label">What I did</div>
-            <div class="case-role-tags">
-              <span class="case-role-tag">Content Strategy</span>
-              <span class="case-role-tag">Influencer Collabs</span>
-              <span class="case-role-tag">Giveaway Campaigns</span>
-              <span class="case-role-tag">Flyer Design</span>
-            </div>
-          </div>
-        </aside>
       </div>
+
       <div class="case-gallery-label">The Work</div>
       <div class="case-gallery">
         <div class="case-gallery-item reveal"><img src="assets/wunderfolks-gallery-1.jpg" alt="Wunderfolks pastry display, Tampines outlet"></div>
         <div class="case-gallery-item reveal"><img src="assets/wunderfolks-gallery-2.jpg" alt="Wunderfolks branded tote bag and coffee cup"></div>
         <div class="case-gallery-item reveal"><img src="assets/wunderfolks-gallery-3.jpg" alt="Wunderfolks Lot One store opening promotional post"></div>
       </div>
+
+      <div class="case-closing reveal">
+        <div class="case-closing-title">Anticipation, built one post at a time.</div>
+        <a href="#work" class="btn btn-ink">See the full portfolio
+          <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
       <div class="case-next">
         <div>
           <div class="case-next-label">Next case study</div>
@@ -1355,54 +1502,80 @@
         <span class="case-tag" style="margin-bottom:0;">Case Study · Jarrons &amp; Co</span>
         <span class="case-status-pill">Jan 2024</span>
       </div>
-      <h1>A warehouse sale that sold itself.</h1>
-      <div class="case-detail-layout">
+      <h1 class="case-h1-v2">A warehouse sale<em>that sold itself.</em></h1>
+
+      <div class="case-meta-strip reveal">
         <div>
-          <div class="case-detail-body reveal">
-            <p>I led the marketing for a collaborative warehouse sale between Jarrons &amp; Co and Baa Baa Sheepz, a local brand well known for its baby products. The approach centred on a guessing game: teaser posts featuring the Baa Baa Sheepz mascot invited followers to guess the collaboration partner before it was revealed, alongside sneak peeks of sale items and their discounted prices.</p>
-            <p>To convert curiosity into reach, I ran a giveaway built on compounding actions: following both brands' accounts, sharing the post to a story, and commenting a set phrase while tagging friends, each step extending the campaign to a new audience. Location tags, event details, and a set of relevant hashtags rounded out the push to be discoverable to people who hadn't heard of either brand yet.</p>
-            <p>Separately, I also built Jarrons &amp; Co's presence on Xiaohongshu (RED/小红书) from scratch: planning content, posting on a consistent schedule, and engaging directly with comments and messages to grow a genuinely engaged following without paid ads.</p>
-          </div>
-          <div class="stat-row reveal" style="margin-top:36px;">
-            <div class="stat"><div class="stat-label">Followers Gained</div><div class="stat-value">221 (+325%)</div></div>
-            <div class="stat"><div class="stat-label">Engagement</div><div class="stat-value">1.9K (+342.7%)</div></div>
-            <div class="stat"><div class="stat-label">Reach</div><div class="stat-value">15.7K (+8.5%)</div></div>
-            <div class="stat"><div class="stat-label">Organic Reach</div><div class="stat-value">4,655 (+101.5%)</div></div>
-            <div class="stat"><div class="stat-label">Link Clicks</div><div class="stat-value">1.1K (+123.4%)</div></div>
-          </div>
-          <div class="chart-block reveal">
-            <div class="chart-title">Growth by Metric (vs. Previous Period)</div>
-            <div class="chart-bars">
-              <div class="chart-bar-row"><div class="chart-bar-label">Engagement</div><div class="chart-bar-track"><div class="chart-bar-fill" data-value="100"></div></div><div class="chart-bar-value">+342.7%</div></div>
-              <div class="chart-bar-row"><div class="chart-bar-label">Followers</div><div class="chart-bar-track"><div class="chart-bar-fill" data-value="94.8"></div></div><div class="chart-bar-value">+325%</div></div>
-              <div class="chart-bar-row"><div class="chart-bar-label">Link Clicks</div><div class="chart-bar-track"><div class="chart-bar-fill alt" data-value="36"></div></div><div class="chart-bar-value">+123.4%</div></div>
-              <div class="chart-bar-row"><div class="chart-bar-label">Organic Reach</div><div class="chart-bar-track"><div class="chart-bar-fill alt" data-value="29.6"></div></div><div class="chart-bar-value">+101.5%</div></div>
-              <div class="chart-bar-row"><div class="chart-bar-label">Reach</div><div class="chart-bar-track"><div class="chart-bar-fill alt" data-value="2.5"></div></div><div class="chart-bar-value">+8.5%</div></div>
-            </div>
+          <div class="case-vision-label">The Vision</div>
+          <p class="case-vision-text">Turn curiosity into reach: a guessing-game teaser campaign for a brand collaboration, engineered so every action compounded the next.</p>
+        </div>
+        <div>
+          <div class="case-vision-label">Role</div>
+          <div class="case-sidebar-value">Freelance Social Media Marketer</div>
+        </div>
+        <div>
+          <div class="case-vision-label">Duration</div>
+          <div class="case-sidebar-value">Jan 2024</div>
+        </div>
+      </div>
+
+      <div class="case-detail-body reveal">
+        <p class="case-pullquote">"Teaser posts invited followers to guess the collaboration partner before it was revealed."</p>
+        <p>I led the marketing for a collaborative warehouse sale between Jarrons &amp; Co and Baa Baa Sheepz, a local brand well known for its baby products. The approach centred on a guessing game featuring the Baa Baa Sheepz mascot, alongside sneak peeks of sale items and their discounted prices.</p>
+      </div>
+
+      <div class="case-band dark reveal">
+        <div class="case-band-eyebrow">The Approach</div>
+        <div class="case-band-title">A giveaway built on compounding actions.</div>
+        <p class="case-band-body">To convert curiosity into reach, I ran a giveaway where each step extended the campaign to a new audience, on top of location tags, event details, and relevant hashtags to reach people who hadn't heard of either brand yet.</p>
+        <div class="case-challenge-list" style="margin-top:30px; max-width:520px;">
+          <div class="case-challenge-item"><span class="case-challenge-num">1</span><span class="case-challenge-text">Following both brands' accounts</span></div>
+          <div class="case-challenge-item"><span class="case-challenge-num">2</span><span class="case-challenge-text">Sharing the post to a story</span></div>
+          <div class="case-challenge-item"><span class="case-challenge-num">3</span><span class="case-challenge-text">Commenting a set phrase while tagging friends</span></div>
+        </div>
+      </div>
+
+      <div class="case-band light reveal">
+        <div class="case-band-eyebrow">Data &amp; Impact</div>
+        <div class="case-band-title">Growth across every metric that matters.</div>
+        <p class="case-band-body">Separately, I also built Jarrons &amp; Co's presence on Xiaohongshu (RED/小红书) from scratch, planning content and engaging directly with comments to grow a genuinely engaged following without paid ads.</p>
+        <div class="case-impact-numbers">
+          <div><div class="case-impact-value">+342.7%</div><div class="case-impact-label">Engagement</div></div>
+          <div><div class="case-impact-value">+325%</div><div class="case-impact-label">Followers Gained</div></div>
+        </div>
+        <div class="stat-row" style="margin-bottom:0;">
+          <div class="stat"><div class="stat-label">Followers Gained</div><div class="stat-value">221 (+325%)</div></div>
+          <div class="stat"><div class="stat-label">Engagement</div><div class="stat-value">1.9K (+342.7%)</div></div>
+          <div class="stat"><div class="stat-label">Reach</div><div class="stat-value">15.7K (+8.5%)</div></div>
+          <div class="stat"><div class="stat-label">Organic Reach</div><div class="stat-value">4,655 (+101.5%)</div></div>
+          <div class="stat"><div class="stat-label">Link Clicks</div><div class="stat-value">1.1K (+123.4%)</div></div>
+        </div>
+        <div class="chart-block reveal">
+          <div class="chart-title">Growth by Metric (vs. Previous Period)</div>
+          <div class="chart-bars">
+            <div class="chart-bar-row"><div class="chart-bar-label">Engagement</div><div class="chart-bar-track"><div class="chart-bar-fill" data-value="100"></div></div><div class="chart-bar-value">+342.7%</div></div>
+            <div class="chart-bar-row"><div class="chart-bar-label">Followers</div><div class="chart-bar-track"><div class="chart-bar-fill" data-value="94.8"></div></div><div class="chart-bar-value">+325%</div></div>
+            <div class="chart-bar-row"><div class="chart-bar-label">Link Clicks</div><div class="chart-bar-track"><div class="chart-bar-fill alt" data-value="36"></div></div><div class="chart-bar-value">+123.4%</div></div>
+            <div class="chart-bar-row"><div class="chart-bar-label">Organic Reach</div><div class="chart-bar-track"><div class="chart-bar-fill alt" data-value="29.6"></div></div><div class="chart-bar-value">+101.5%</div></div>
+            <div class="chart-bar-row"><div class="chart-bar-label">Reach</div><div class="chart-bar-track"><div class="chart-bar-fill alt" data-value="2.5"></div></div><div class="chart-bar-value">+8.5%</div></div>
           </div>
         </div>
-        <aside class="case-sidebar reveal">
-          <div class="case-sidebar-block" style="border-top:none; padding-top:0;">
-            <div class="case-sidebar-label">Role</div>
-            <div class="case-sidebar-value">Freelance Social Media Marketer</div>
-          </div>
-          <div class="case-sidebar-block">
-            <div class="case-sidebar-label">What I did</div>
-            <div class="case-role-tags">
-              <span class="case-role-tag">Campaign Strategy</span>
-              <span class="case-role-tag">Giveaway Mechanics</span>
-              <span class="case-role-tag">Xiaohongshu Growth</span>
-              <span class="case-role-tag">Community Engagement</span>
-            </div>
-          </div>
-        </aside>
       </div>
+
       <div class="case-gallery-label">The Work</div>
       <div class="case-gallery">
         <div class="case-gallery-item reveal"><img src="assets/jarrons-gallery-1.jpg" alt="Jarrons & Co x Baa Baa Sheepz warehouse sale $5 ad post"></div>
         <div class="case-gallery-item reveal"><img src="assets/jarrons-gallery-2.jpg" alt="Jarrons & Co warehouse sale event date and location post"></div>
         <div class="case-gallery-item reveal"><img src="assets/jarrons-gallery-3.jpg" alt="Jarrons & Co warehouse sale participating brands post"></div>
       </div>
+
+      <div class="case-closing reveal">
+        <div class="case-closing-title">Curiosity, engineered to compound.</div>
+        <a href="#work" class="btn btn-ink">See the full portfolio
+          <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
       <div class="case-next">
         <div>
           <div class="case-next-label">Next case study</div>
